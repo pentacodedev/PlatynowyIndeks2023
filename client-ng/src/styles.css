@@ -1,1 +1,52 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+@font-face {
+    font-family: "Montserrat";
+    src: url('assets/Montserrat-VariableFont_wght.ttf');
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Montserrat";
+    src: url('assets/Montserrat-Italic-VariableFont_wght.ttf');
+    font-style: italic;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    color-scheme: dark;
+    --bg: hsl(223, 11%, 26%);
+    --bg-f: hsl(223, 9%, 44%);
+}
+
+body {
+    font-family: "Montserrat";
+    color: white;
+    background-color: var(--bg);
+    margin: 0;
+}
+
+form {
+    padding: 0.5em;
+}
+
+.ctrl-group {
+    display: grid;
+    margin-bottom: 1em;
+    grid-template-rows: repeat(2, 1fr);
+}
+
+button {
+    background-color: var(--bg-f);
+    border: none;
+    padding: 0.2em;
+    width: 100%;
+}
+
+button:hover {
+    cursor: pointer;
+}
