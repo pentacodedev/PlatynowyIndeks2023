@@ -25,6 +25,7 @@
 
 body {
     font-family: "Montserrat";
+    font-weight: 500;
     color: white;
     background-color: var(--bg);
     margin: 0;
@@ -37,14 +38,31 @@ form {
 .ctrl-group {
     display: grid;
     margin-bottom: 1em;
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-rows: 1fr 2fr;
+}
+
+.ctrl-group input {
+    font-family: "Montserrat";
+    font-size: 1.1rem;
+    background-color: transparent;
+    border: 0.125em solid gray;
+    padding: 0.5em;
+    border-radius: 0.25rem;
+}
+
+button:focus, input:focus {
+    outline:2px solid purple;
 }
 
 button {
+    border-radius: 0.25rem;
     background-color: var(--bg-f);
     border: none;
-    padding: 0.2em;
+    padding: 1em;
     width: 100%;
+    font-family: "Montserrat";
+    font-weight: 600;
+    font-size: 1.1rem;
 }
 
 button:hover {
