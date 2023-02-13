@@ -1,0 +1,10 @@
+.map-container {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+}
+
+#map {
+    grid-area: 1/1;
+}
