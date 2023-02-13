@@ -1,4 +1,8 @@
 <nav>
     <a routerLink="/">Home</a>
-    <a routerLink="/login">Login</a>
+
+    <a *ngIf="isLogged" routerLink="/map">Map</a>
+
+    <a *ngIf="!isLogged" routerLink="/login">Login</a>
+    <a *ngIf="!isLogged" routerLink="/register">Register</a>
 </nav>

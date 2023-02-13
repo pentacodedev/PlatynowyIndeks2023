@@ -19,52 +19,54 @@
 
 :root {
     color-scheme: dark;
-    --bg: hsl(223, 11%, 26%);
-    --bg-f: hsl(223, 9%, 44%);
 }
 
 body {
     font-family: "Montserrat";
     font-weight: 500;
     color: white;
-    background-color: var(--bg);
+    background-color: #333;
     margin: 0;
 }
 
-form {
-    padding: 0.5em;
-}
-
-.ctrl-group {
+.form {
     display: grid;
-    margin-bottom: 1em;
-    grid-template-rows: 1fr 2fr;
+    gap: 1em;
+    padding: 1em;
+    border-radius: 0.5em;
 }
 
-.ctrl-group input {
+.form input, button {
+    font-size: 1rem;
     font-family: "Montserrat";
-    font-size: 1.1rem;
-    background-color: transparent;
-    border: 0.125em solid gray;
+    background-color: #222;
+    border: none;
     padding: 0.5em;
-    border-radius: 0.25rem;
-}
-
-button:focus, input:focus {
-    outline:2px solid purple;
+    border-radius: 0.5em;
 }
 
 button {
-    border-radius: 0.25rem;
-    background-color: var(--bg-f);
-    border: none;
-    padding: 1em;
-    width: 100%;
-    font-family: "Montserrat";
-    font-weight: 600;
-    font-size: 1.1rem;
+    background-color: hsl(0, 0%, 57%);
+    color: #222;
+    font-weight: bold;
+    transition:
+    color 1s,
+    background-color 1s,
 }
 
 button:hover {
     cursor: pointer;
+    background-color: hsl(0,0%,80%);
+}
+
+button:disabled {
+    cursor: default;
+    opacity: 0.3;
+}
+
+
+
+.ctrl-group {
+    display: grid;
+    gap: 0.2em;
 }

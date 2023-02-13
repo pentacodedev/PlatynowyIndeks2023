@@ -1,12 +1,13 @@
 <h1>Log in</h1>
-<form>
+<p>current user: {{auth.currentUser?.username}}</p>
+<form class="form" [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()">
     <div class="ctrl-group">
-        <label>Username</label>
-        <input type="text">
+        <label for="username">Username</label>
+        <input id="username" type="text" formControlName="username">
     </div>
     <div class="ctrl-group">
-        <label>Password</label>
-        <input type="password">
+        <label for="password">Password</label>
+        <input id="password" type="password" formControlName="password">
     </div>
-    <button type="submit">Login</button>
+    <button type="button" type="submit" [disabled]="loginForm.invalid">Login</button>
 </form>
