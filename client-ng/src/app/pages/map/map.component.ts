@@ -14,8 +14,8 @@ export class MapComponent implements OnInit {
     layers: [
       tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18, attribution: '...' })
     ],
-    zoom: 5,
-    center: latLng(46.879966, -121.726909)
+    zoom: 7,
+    center: latLng(52.2158973252085, 19.195172828836743)
   };
 
   ngOnInit(): void {
