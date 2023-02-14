@@ -16,10 +16,11 @@
     box-sizing: border-box;
 }
 
-:root {
-    color-scheme: dark;
-}
 html {
+    height: 100%;
+}
+
+body {
     height: 100%;
 }
 
@@ -29,8 +30,7 @@ body {
     color: white;
     background-color: #333;
     margin: 0;
-    display: grid;
-    min-height: 100%;
+    padding: 0;
 }
 
 
@@ -39,6 +39,11 @@ body {
     gap: 1em;
     padding: 1em;
     border-radius: 0.5em;
+}
+
+.ctrl-group {
+    display: grid;
+    gap: 0.2em;
 }
 
 .form input, button {
@@ -69,9 +74,3 @@ button:disabled {
     opacity: 0.3;
 }
 
-
-
-.ctrl-group {
-    display: grid;
-    gap: 0.2em;
-}

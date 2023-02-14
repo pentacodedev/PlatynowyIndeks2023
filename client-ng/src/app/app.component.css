@@ -1,4 +1,19 @@
+:host {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    min-height: 100%;
+    grid-template-areas: "nav" "page";
+}
+
+app-navbar {
+    grid-area: nav;
+}
+
+
+
 .page {
+    grid-area: page;
+    height: 100%;
     padding: 1em;
-    height: 90%;
+    position: relative;
 }

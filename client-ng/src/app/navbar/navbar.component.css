@@ -1,5 +1,6 @@
 nav { 
     display:flex;
+    height: 100%;
     --border: 0.15em solid #ddd4;
     border-bottom: var(--border);
 }
