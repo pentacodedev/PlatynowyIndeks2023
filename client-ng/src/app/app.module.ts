@@ -11,6 +11,10 @@ import { HomeComponent } from './pages/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+import { AdminComponent } from './pages/admin/admin.component';
+import { AdminUsersComponent } from './pages/admin/users/users.component';
+import { AdminLocationsComponent } from './pages/admin/locations/locations.component';
+import { AdminGroupsComponent } from './pages/admin/groups/groups.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +23,11 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
     MapComponent,
     LoginComponent,
     RegisterComponent,
-    HomeComponent
+    HomeComponent,
+    AdminComponent,
+    AdminUsersComponent,
+    AdminLocationsComponent,
+    AdminGroupsComponent
   ],
   imports: [
     BrowserModule,

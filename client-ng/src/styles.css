@@ -1,5 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 
+:root {
+    --fg: hsl(220, 7%, 92%);
+    --bg: hsl(224, 10%, 21%);
+    --fill: hsl(223, 10%, 36%);
+    --primary: hsl(157, 100%, 54%);
+    --secondary: hsl(248, 49%, 64%);
+}
+
 @font-face {
     font-family: "Montserrat";
     src: url('assets/Montserrat-VariableFont_wght.ttf');
@@ -27,12 +35,11 @@ body {
 body {
     font-family: "Montserrat";
     font-weight: 500;
-    color: white;
-    background-color: #333;
+    color: var(--fg);
+    background-color: var(--bg);
     margin: 0;
     padding: 0;
 }
-
 
 .form {
     display: grid;
@@ -49,25 +56,21 @@ body {
 .form input, button {
     font-size: 1rem;
     font-family: "Montserrat";
-    background-color: #222;
-    color: white;
+    background-color: var(--fill);
+    color: var(--fg);
     border: none;
     padding: 0.5em;
     border-radius: 0.5em;
 }
 
 button {
-    background-color: hsl(0, 0%, 57%);
-    color: #222;
+    background-color: var(--secondary);
+    color: var(--fg);
     font-weight: bold;
-    transition:
-    color 1s,
-    background-color 1s,
 }
 
 button:hover {
     cursor: pointer;
-    background-color: hsl(0,0%,80%);
 }
 
 button:disabled {
