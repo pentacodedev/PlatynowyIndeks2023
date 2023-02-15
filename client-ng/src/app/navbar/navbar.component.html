@@ -1,5 +1,5 @@
 <nav>
-    <a routerLinkActive="active" routerLink="/">Home</a>
+    <a [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active" routerLink="/">Home</a>
     <ng-container *ngIf="isLogged"> 
         <a routerLinkActive="active" routerLink="/map">Map</a>
         <a routerLinkActive="active" routerLink="/admin">Admin</a>

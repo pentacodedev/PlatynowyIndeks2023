@@ -10,6 +10,7 @@ nav a {
     color: inherit;
     flex-grow: 1;
     text-align: center;
+    flex-basis: 0;
 }
 
 nav a.active {
