@@ -15,6 +15,7 @@ import { AdminComponent } from './pages/admin/admin.component';
 import { AdminUsersComponent } from './pages/admin/users/users.component';
 import { AdminLocationsComponent } from './pages/admin/locations/locations.component';
 import { AdminGroupsComponent } from './pages/admin/groups/groups.component';
+import { LocationCardComponent } from './pages/admin/locations/location-card/location-card.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { AdminGroupsComponent } from './pages/admin/groups/groups.component';
     AdminComponent,
     AdminUsersComponent,
     AdminLocationsComponent,
-    AdminGroupsComponent
+    AdminGroupsComponent,
+    LocationCardComponent
   ],
   imports: [
     BrowserModule,

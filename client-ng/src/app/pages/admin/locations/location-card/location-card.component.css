@@ -1,0 +1,10 @@
+.locationCard{
+    border: 0.2em solid var(--fill);
+    padding: 1.5rem;
+    border-radius: 0.3rem;
+    transition: border-color 0.3s;
+}
+.locationCard:hover{
+    border: 0.2em solid var(--primary);
+}
+/*todo grid*/

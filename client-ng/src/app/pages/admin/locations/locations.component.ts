@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
+import { ObjectLocation } from 'src/app/models/ObjectLocation';
+import { AdminService } from 'src/app/services/admin.service';
 
 @Component({
   selector: 'app-admin-locations',
@@ -7,4 +10,8 @@ import { Component } from '@angular/core';
 })
 export class AdminLocationsComponent {
 
+  locationsArray$: Observable<ObjectLocation[]>
+  constructor(private admin: AdminService){
+    this.locationsArray$ = admin.getAllLocations();
+  }
 }

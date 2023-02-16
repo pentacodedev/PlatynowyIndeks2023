@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, EMPTY, empty, of } from 'rxjs';
+import { ObjectLocation } from '../models/ObjectLocation';
 import { Player } from '../models/Player';
 import { User } from '../models/User';
 import { AuthService } from './auth.service';
@@ -29,5 +30,14 @@ export class AdminService {
         })
     })
     .pipe(catchError(this.handleError));
+  }
+  getAllLocations(){
+    return this.http.get<ObjectLocation[]>(this.apiUrl + "locations/locations-to-accept", {
+      headers: new HttpHeaders({
+        'Bearer-Token':  `${this.auth.currentUser?.token}`,
+        'Authorization': `bearer ${this.auth.currentUser?.token}`
+      })
+  })
+  .pipe(catchError(this.handleError));
   }
 }
