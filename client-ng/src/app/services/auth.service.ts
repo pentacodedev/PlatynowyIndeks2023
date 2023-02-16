@@ -13,10 +13,7 @@ import { ApiService } from './api.service';
 export class AuthService {
 
   constructor(private api: ApiService, private router: Router) { 
-    let userJson = localStorage.getItem("user");
-    if (userJson != null) {
-      this.api.user = JSON.parse(userJson);
-    }
+   
   }
 
   navigateHome() {
@@ -25,7 +22,6 @@ export class AuthService {
 
   logout() {
     this.api.removeUser();
-    localStorage.removeItem("user");
     this.navigateHome();
   }
 
@@ -39,7 +35,6 @@ export class AuthService {
     .subscribe({
       next: (user) => {
         this.api.user = user;
-        localStorage.setItem("user", JSON.stringify(user));
         this.navigateHome();
       }
     })
@@ -54,7 +49,6 @@ export class AuthService {
     .subscribe({
       next: (user) => {
         this.api.user = user;
-        localStorage.setItem("user", JSON.stringify(user));
         this.navigateHome();
       }
     })

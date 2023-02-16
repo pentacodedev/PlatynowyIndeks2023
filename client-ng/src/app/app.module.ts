@@ -16,6 +16,7 @@ import { AdminUsersComponent } from './pages/admin/users/users.component';
 import { AdminLocationsComponent } from './pages/admin/locations/locations.component';
 import { AdminGroupsComponent } from './pages/admin/groups/groups.component';
 import { LocationCardComponent } from './pages/admin/locations/location-card/location-card.component';
+import { LogoutComponent } from './pages/logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { LocationCardComponent } from './pages/admin/locations/location-card/loc
     AdminUsersComponent,
     AdminLocationsComponent,
     AdminGroupsComponent,
-    LocationCardComponent
+    LocationCardComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,

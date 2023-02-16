@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders, HttpParamsOptions } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, EMPTY } from 'rxjs';
+import { catchError, EMPTY, Observable } from 'rxjs';
 import { User } from '../models/User';
 
 @Injectable({
@@ -10,10 +10,20 @@ export class ApiService {
 
   private apiUrl: string = "https://localhost:5001/api/";
 
-  user?: User;
+  private _user?: User;
 
-  public setUser(user: User) { 
-    this.user = user;
+  public get user(): User | undefined { 
+    return this._user;
+  }
+
+  public set user(val: User | undefined) { 
+    if (val) {
+      localStorage.setItem("user", JSON.stringify(val));
+    }
+    else {
+      localStorage.removeItem("user");
+    }
+    this._user = val;
   }
 
   public setHttpHeaders() {
@@ -21,25 +31,23 @@ export class ApiService {
   }
 
   public removeUser() {
-    this.user = undefined;
+    this._user = undefined;
+    localStorage.removeItem("user");
   }
 
   public onErr(err: any) {
     console.error(JSON.stringify(err));
-
     return EMPTY;
   }
 
-  public getToken(): string | undefined {
-    return this.user?.token;
-  }
 
   public getHeaders() {
     let authHeaders = {}
-    if (this.user != undefined) {
+    let token = this._user?.token;
+    if (this._user != undefined) {
       authHeaders = {
-          'Bearer-Token':  `${this.getToken()}`,
-          'Authorization': `bearer ${this.getToken()}`
+          'Bearer-Token':  `${token}`,
+          'Authorization': `bearer ${token}`
       } 
     }
     return authHeaders;
@@ -54,12 +62,17 @@ export class ApiService {
   }
 
 
-  public getAll<T>(relPath: string) {
+  public getAll<T>(relPath: string) : Observable<T[]> {
     return this.http.get<T[]>(this.apiUrl + relPath, {
       headers: this.getHeaders(),
     }).pipe(catchError(this.onErr))
   }
 
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    let userJson = localStorage.getItem("user");
+    if (userJson != null) {
+      this._user = JSON.parse(userJson);
+    }
+  }
 }
