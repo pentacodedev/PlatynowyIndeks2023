@@ -1,11 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
 
 :root {
+
     --fg: hsl(220, 7%, 92%);
     --bg: hsl(224, 10%, 21%);
     --fill: hsl(223, 10%, 36%);
-    --primary: hsl(157, 100%, 54%);
-    --secondary: hsl(248, 49%, 64%);
+
+    --primary: hsl(157, 100%, 55%);
+    --primary-l: hsl(157, 100%, 85%);
+
+    --secondary: hsl(248, 100%, 75%);
+    --secondary-l: hsl(248, 100%, 85%);
 }
 
 @font-face {

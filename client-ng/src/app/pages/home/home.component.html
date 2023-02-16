@@ -1,6 +1,6 @@
 <p>home works</p>
 
-<div *ngIf="auth.currentUser">
-    <p>Current user: {{auth.currentUser.username}}</p>
+<div *ngIf="api.user != undefined">
+    <p>Current user: {{api.user.username}}</p>
     <button type="button" (click)="logout()">Log out</button>
 </div>

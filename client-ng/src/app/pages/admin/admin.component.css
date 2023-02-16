@@ -4,6 +4,7 @@ nav {
     align-items: center;
     gap: 1em;
 }
+
 nav a {
     border: 0.2em solid var(--fill);
     border-radius: 0.5rem;
@@ -19,7 +20,7 @@ nav a {
 }
 
 nav a.active {
-    color: var(--secondary);
+    color: var(--secondary-l);
     border-color: var(--secondary);
 }
 

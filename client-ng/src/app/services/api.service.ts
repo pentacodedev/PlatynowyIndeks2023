@@ -11,11 +11,9 @@ export class ApiService {
   private apiUrl: string = "https://localhost:5001/api/";
 
   user?: User;
-  isLogged: boolean = false;
 
   public setUser(user: User) { 
     this.user = user;
-    this.isLogged = this.user != undefined;
   }
 
   public setHttpHeaders() {
@@ -24,7 +22,6 @@ export class ApiService {
 
   public removeUser() {
     this.user = undefined;
-    this.isLogged = false;
   }
 
   public onErr(err: any) {
@@ -39,7 +36,7 @@ export class ApiService {
 
   public getHeaders() {
     let authHeaders = {}
-    if (this.isLogged) {
+    if (this.user != undefined) {
       authHeaders = {
           'Bearer-Token':  `${this.getToken()}`,
           'Authorization': `bearer ${this.getToken()}`

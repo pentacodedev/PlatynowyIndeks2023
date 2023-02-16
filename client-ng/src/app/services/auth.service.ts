@@ -35,7 +35,7 @@ export class AuthService {
         password: password,
     }
 
-    this.api.post<User,LoginData>("login", loginData)
+    this.api.post<User,LoginData>("account/login", loginData)
     .subscribe({
       next: (user) => {
         this.api.user = user;
