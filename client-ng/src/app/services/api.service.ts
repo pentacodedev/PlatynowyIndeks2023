@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders, HttpParamsOptions } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, EMPTY, Observable } from 'rxjs';
+import { ObjectLocation } from '../models/ObjectLocation';
 import { User } from '../models/User';
 
 @Injectable({
@@ -66,6 +67,10 @@ export class ApiService {
     return this.http.get<T[]>(this.apiUrl + relPath, {
       headers: this.getHeaders(),
     }).pipe(catchError(this.onErr))
+  }
+
+  public getAllLocations(): Observable<ObjectLocation[]> {
+    return this.getAll<ObjectLocation>("locations");
   }
 
 

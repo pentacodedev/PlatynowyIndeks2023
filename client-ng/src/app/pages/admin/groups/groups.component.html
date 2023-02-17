@@ -1,1 +1,4 @@
-<p>groups works!</p>
+<h2>Groups</h2>
+<ul>
+    <li *ngFor="let group of groups$ | async">{{group.name}}</li>
+</ul>

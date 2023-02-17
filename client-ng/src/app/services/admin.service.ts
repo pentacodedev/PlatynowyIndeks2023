@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { catchError, EMPTY, empty, of } from 'rxjs';
+import { Group } from '../models/Group';
 import { ObjectLocation } from '../models/ObjectLocation';
 import { Player } from '../models/Player';
 import { ApiService } from './api.service';
@@ -16,5 +17,9 @@ export class AdminService {
   }
   getAllLocations(){
     return this.api.getAll<ObjectLocation>("locations/locations-to-accept");
+  }
+
+  getAllGroups() {
+    return this.api.getAll<Group>("groups");
   }
 }

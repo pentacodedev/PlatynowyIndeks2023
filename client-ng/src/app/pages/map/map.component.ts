@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { latLng, tileLayer } from 'leaflet';
+import { latLng, Marker, marker, tileLayer } from 'leaflet';
+import { map, Observable } from 'rxjs';
+import { ObjectLocation } from 'src/app/models/ObjectLocation';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-map',
@@ -8,7 +11,9 @@ import { latLng, tileLayer } from 'leaflet';
 })
 export class MapComponent implements OnInit {
 
-  constructor() { }
+  constructor(private api: ApiService) { }
+
+  markers$!: Observable<Marker[]>;
 
   options = {
     layers: [
@@ -19,6 +24,7 @@ export class MapComponent implements OnInit {
   };
 
   ngOnInit(): void {
+    this.markers$ = this.api.getAllLocations().pipe(map(x=>x.map(x=>marker([x.coordLat, x.coordLon]))));
   }
 
 }

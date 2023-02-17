@@ -15,7 +15,7 @@ nav a {
 
 nav a.active {
     border-color: var(--primary);
-    color: var(--primary);
+    color: var(--primary-l);
 }
 
 
