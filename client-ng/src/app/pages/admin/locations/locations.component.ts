@@ -12,8 +12,7 @@ export class AdminLocationsComponent implements OnInit{
 
   locationsArray$: Observable<ObjectLocation[]> = EMPTY;
 
-  constructor(private admin: AdminService){
-  }
+  constructor(private admin: AdminService) {}
 
   ngOnInit(): void {
     this.locationsArray$ = this.admin.getAllLocations();
