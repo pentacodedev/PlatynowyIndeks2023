@@ -1,0 +1,60 @@
+:host() {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.map-view {
+    flex-grow: 1;
+    display: grid;
+    position: relative;
+    grid-template-areas: "stack";
+    isolation: isolate;
+}
+
+.picker {
+    z-index: -1;
+}
+
+.map-view>* {
+    grid-area: stack;
+}
+
+
+@keyframes slide-left {
+    from {
+        transform:  translate(-200%);
+    }
+    to {
+        transform:  translate(0%);
+    }
+}
+
+
+.overlay {
+    min-width: fit-content;
+    animation-name: slide-left;
+    animation-duration: 1s;
+    box-sizing: border-box;
+    width: 25%;
+    padding: 1em;
+    background-color: var(--bg);
+    position: absolute;
+    bottom: 0.5em;
+    left: 0.5em;
+    border-radius: 1em 1em 1em 1em;
+    box-shadow: 0 0.25em 0.5em #0008;
+}
+
+.tooltip {
+    font-size: 0.8rem;
+    box-shadow: 0 0.25em 0.5em #0008;
+    background-color: var(--fg);
+    color: var(--bg);
+    font-style: italic;
+    margin: auto;
+    margin-bottom: 2em;
+    padding: 0.5em 2em;
+    border-radius: 20em;
+}
+

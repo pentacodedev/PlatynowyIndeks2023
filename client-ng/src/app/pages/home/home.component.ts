@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/User';
+import { ApiService } from 'src/app/services/api.service';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -13,12 +14,8 @@ export class HomeComponent implements OnInit {
     this.auth.logout();
   }
 
-  constructor(protected auth: AuthService) { }
-
-  user?: User;
+  constructor(protected api: ApiService, private auth: AuthService) { }
 
   ngOnInit(): void {
-    this.user = this.auth.currentUser;
   }
-
 }

@@ -1,0 +1,50 @@
+<h1>Add a new location</h1>
+
+<div class="map-view">
+    <app-map-picker class="picker" (onLocationSelected)="onNewLocationSelected($event)"></app-map-picker>
+    <div class="tooltip">
+        click on position to select
+    </div>
+    <div class="overlay">
+        <h2>Informacje</h2>
+        <p>Wybrana lokalizacja:</p>
+        <p>
+        <code>
+        Lat: {{selectedLocation?.lat}} <br> 
+        Lon: {{selectedLocation?.lng}}
+        </code>
+        <p>
+        <form class="form" (ngSubmit)="onAddLocFormSubmit()" [formGroup]="addLocForm">
+            <div class="ctrl-group">
+                <label>Nazwa</label>
+                <input formControlName="name">
+            </div>
+            <div class="ctrl-group">
+                <label>Adres</label>
+                <input formControlName="address">
+            </div>
+            <div class="ctrl-group">
+                <label>Opis</label>
+                <textarea formControlName="description"></textarea>
+            </div>
+            <button [disabled]="addLocForm.invalid || !selectedLocation" type="submit">Dodaj</button>
+        </form>
+    </div>
+</div>
+<!--
+<form class="form" [formGroup]="addLocForm" (ngSubmit)="onAddLocFormSubmit()">
+    <div class="ctrl-group">
+        <label for="name">Name</label>
+        <input id="name" type="text" formControlName="name">
+    </div>
+    <div class="ctrl-group">
+        <label for="description">Description</label>
+        <input id="description" type="text" formControlName="description">
+    </div>
+    <div class="ctrl-group">
+        <label for="description">Select location from the map: </label>
+        <app-map-picker></app-map-picker>
+    </div>
+    <button type="button" [disabled]="addLocForm.invalid" type="submit">Add location</button>
+</form>
+-->

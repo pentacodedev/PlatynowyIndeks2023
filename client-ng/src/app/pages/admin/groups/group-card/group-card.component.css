@@ -1,0 +1,31 @@
+.groupCard{
+    border: 0.2em solid var(--fill);
+    padding: 1.5rem;
+    border-radius: 0.3rem;
+    transition: border-color 0.3s;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 1fr auto;
+}
+
+.groupCard:hover{
+    border: 0.2em solid var(--secondary);
+}
+.buttons{
+    text-align: right;
+}
+.buttons button {
+    margin: 0.2rem;
+    border: 0.2em solid var(--fill);
+    background-color: var(--bg);
+    transition:  0.3s;
+}
+
+.buttons .accept:hover{
+    border: 0.2em solid var(--primary);
+    color: var(--primary);
+}
+.buttons .decline:hover{
+    border: 0.2em solid var(--error);
+    color: var(--error);
+}

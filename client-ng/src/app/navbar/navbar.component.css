@@ -1,16 +1,21 @@
 nav { 
     display:flex;
     height: 100%;
-    --border: 0.15em solid #ddd4;
-    border-bottom: var(--border);
+    --border: 0.2em solid var(--fill);
 }
 nav a {
+    border-bottom: var(--border);
     padding: 0.8em;
     text-decoration: none;
     color: inherit;
     flex-grow: 1;
     text-align: center;
+    flex-basis: 0;
 }
 
+nav a.active {
+    border-color: var(--primary);
+    color: var(--primary-l);
+}
 
 
