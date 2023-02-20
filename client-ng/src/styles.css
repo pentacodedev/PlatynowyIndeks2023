@@ -52,7 +52,6 @@ body {
 .form {
     display: grid;
     gap: 1em;
-    padding: 1em;
     border-radius: 0.5em;
 }
 
@@ -61,7 +60,7 @@ body {
     gap: 0.2em;
 }
 
-.form input, button {
+.form input, button, textarea {
     font-size: 1rem;
     font-family: "Montserrat";
     background-color: var(--fill);
@@ -69,6 +68,10 @@ body {
     border: none;
     padding: 0.5em;
     border-radius: 0.5em;
+}
+
+textarea {
+    resize: vertical;
 }
 
 button {

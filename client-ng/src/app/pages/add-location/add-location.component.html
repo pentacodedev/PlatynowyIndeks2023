@@ -1,5 +1,26 @@
 <h1>Add a new location</h1>
-<app-map-picker class="picker"></app-map-picker>
+
+<div class="map-view">
+    <app-map-picker class="picker"></app-map-picker>
+    <div class="tooltip">
+        click on position to select
+    </div>
+    <div class="overlay">
+        <h2>Informacje</h2>
+        <p>Wybrana lokalizacja: <strong>Lat Lon</strong></p>
+        <form class="form">
+            <div class="ctrl-group">
+                <label>Nazwa</label>
+                <input>
+            </div>
+            <div class="ctrl-group">
+                <label>Opis</label>
+                <textarea></textarea>
+            </div>
+            <button type="submit">Dodaj</button>
+        </form>
+    </div>
+</div>
 <!--
 <form class="form" [formGroup]="addLocForm" (ngSubmit)="onAddLocFormSubmit()">
     <div class="ctrl-group">
