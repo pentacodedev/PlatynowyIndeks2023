@@ -11,6 +11,9 @@
 
     --secondary: hsl(248, 100%, 75%);
     --secondary-l: hsl(248, 100%, 85%);
+
+    --error: hsl(0, 100%, 65%);
+    --ok: hsl(157, 100%, 60%);
 }
 
 @font-face {
