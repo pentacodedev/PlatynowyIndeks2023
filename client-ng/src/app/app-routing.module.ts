@@ -4,6 +4,7 @@ import { AdminComponent } from './pages/admin/admin.component';
 import { AdminGroupsComponent } from './pages/admin/groups/groups.component';
 import { AdminLocationsComponent } from './pages/admin/locations/locations.component';
 import { AdminUsersComponent } from './pages/admin/users/users.component';
+import { AddLocationComponent } from './pages/add-location/add-location.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { LogoutComponent } from './pages/logout/logout.component';
@@ -24,6 +25,7 @@ const routes: Routes = [
   },
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
+  {path: 'add-location', component: AddLocationComponent},
   {path: 'map', component: MapComponent},
   {path: 'logout', component: LogoutComponent },
   {path: 'home', component: HomeComponent },
@@ -34,6 +36,6 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { 
+export class AppRoutingModule {
 
 }

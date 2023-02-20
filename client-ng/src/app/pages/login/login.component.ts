@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, NonNullableFormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { User } from 'src/app/models/User';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -10,6 +9,9 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+
+
+
   onLoginSubmit() {
     let f = this.loginForm.value;
 
@@ -20,7 +22,7 @@ export class LoginComponent implements OnInit {
 
 
 
-  constructor(private fb: FormBuilder, protected auth: AuthService, private router: Router) {
+  constructor(private fb: FormBuilder, protected auth: AuthService) {
   }
 
   loginForm = this.fb.group({
@@ -28,7 +30,7 @@ export class LoginComponent implements OnInit {
     password: ['', [Validators.required]],
   })
 
-  
+
   ngOnInit(): void {
   }
 

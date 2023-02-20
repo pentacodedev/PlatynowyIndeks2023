@@ -19,6 +19,8 @@ import { LocationCardComponent } from './pages/admin/locations/location-card/loc
 import { LogoutComponent } from './pages/logout/logout.component';
 import { GroupCardComponent } from './pages/admin/groups/group-card/group-card.component';
 import { UsersCardComponent } from './pages/admin/users/users-card/users-card.component';
+import { AddLocationComponent } from './pages/add-location/add-location.component';
+import { MapPickerComponent } from './map-picker/map-picker.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { UsersCardComponent } from './pages/admin/users/users-card/users-card.co
     LocationCardComponent,
     LogoutComponent,
     GroupCardComponent,
-    UsersCardComponent
+    UsersCardComponent,
+    AddLocationComponent,
+    MapPickerComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,5 +51,5 @@ import { UsersCardComponent } from './pages/admin/users/users-card/users-card.co
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule 
+export class AppModule
 { }
