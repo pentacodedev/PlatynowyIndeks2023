@@ -1,3 +1,3 @@
-<div class="map-picker" leaflet [leafletOptions]="options" (leafletClick)="onMapClick($event)" [leafletCenter]="selectedLocation">
+<div class="map-picker" leaflet [leafletOptions]="options" (leafletClick)="onMapClick($event)">
     <div *ngIf="marker" [leafletLayer]="marker"></div>
 </div>
