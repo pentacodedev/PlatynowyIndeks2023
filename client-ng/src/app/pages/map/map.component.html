@@ -2,5 +2,5 @@
 leaflet
 [leafletOptions]="options"
 >
-    <div *ngFor="let marker of markers$ | async" [leafletLayer]="marker"></div>
+    <div *ngFor="let marker of markers$ | async" [leafletLayer]="marker" (click)="onMarkerClick(marker)"></div>
 </div>
