@@ -10,6 +10,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { LogoutComponent } from './pages/logout/logout.component';
 import { MapComponent } from './pages/map/map.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { UserComponent } from './pages/user/user.component';
 
 const routes: Routes = [
   {path: 'map', component: MapComponent},
@@ -29,6 +30,7 @@ const routes: Routes = [
   {path: 'map', component: MapComponent},
   {path: 'logout', component: LogoutComponent },
   {path: 'home', component: HomeComponent },
+  {path: 'user', component: UserComponent },
   {path: '', pathMatch:'full', redirectTo: "home"},
 ];
 
