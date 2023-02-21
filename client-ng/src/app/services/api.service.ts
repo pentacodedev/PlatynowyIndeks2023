@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders, HttpParamsOptions } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, EMPTY, Observable } from 'rxjs';
+import { Group } from '../models/Group';
 import { ObjectLocation } from '../models/ObjectLocation';
 import { User } from '../models/User';
 
@@ -73,6 +74,9 @@ export class ApiService {
     return this.getAll<ObjectLocation>("locations");
   }
 
+  // public getAllByUserName<T>(path: string, username: string){
+  //   return this.http.get<T[]>(path + "/" + username);
+  // }
 
   constructor(private http: HttpClient) {
     let userJson = localStorage.getItem("user");

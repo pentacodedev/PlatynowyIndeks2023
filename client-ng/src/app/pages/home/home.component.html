@@ -1,6 +1,33 @@
-<p>home works</p>
-
-<div *ngIf="api.user != undefined">
-    <p>Current user: {{api.user.username}}</p>
-    <button type="button" (click)="logout()">Log out</button>
+<h2>TeamHere</h2>
+<div *ngIf="api.user == undefined">
+    <p>Zaloguj się aby korzystać z Team Here</p>
 </div>
+<div *ngIf="api.user != undefined">
+    <p>Witaj: {{api.user.username}}</p>
+    
+</div>
+<div class="container">
+    <div class="userGroups">
+        <p>Twoje grupy:</p>
+        <div class="optionCard" *ngFor="let i of groups$ | async">{{i.name}}</div>
+    </div>
+    <div class="userGroups">
+        <p>Zbliżające się eventy:</p>
+        <div class="optionCard" *ngFor="let i of groups$ | async">
+            <p>Nazwa wydarzenia:{{i.name}}</p>
+            <p>Opis wydarzenia:</p>
+        </div>
+    </div>
+    <div class="userGroups">
+        <p>Do tych eventów zostałeś zaproszony:</p>
+        <div class="optionCard" *ngFor="let i of groups$ | async">
+            <p>Nazwa wydarzenia:{{i.name}}</p>
+            <p>Opis wydarzenia:</p>
+            <div class="buttons">
+                <button class="accept">Dołącz</button>
+                <button class="decline">Odrzuć</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <button type="button" (click)="logout()">Log out</button> -->

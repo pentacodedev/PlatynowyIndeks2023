@@ -1,0 +1,45 @@
+.container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    margin-top: 1rem;
+    gap: 1rem;
+}
+.userGroups{
+    border: 0.2em solid var(--fill);
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    transition: 0.3s;
+    height: 100%;
+}
+.userGroups:hover{
+    border: 0.2em solid var(--secondary);
+}
+.optionCard{
+    border: 0.2em dashed var(--fill);
+    margin-bottom: 0.5rem;
+    border-radius: 0.5rem;
+    padding: 0.3rem;
+    transition: 0.3s;
+}
+.optionCard:hover{
+    border: 0.2em dashed var(--primary-l);
+    box-shadow: 0.35rem 0.3rem 0.3rem black 
+}
+.buttons{
+    text-align: right;
+}
+.buttons button{
+    margin: 0.2rem;
+    border: 0.2em solid var(--fill);
+    background-color: var(--bg);
+    transition:  0.3s;
+}
+.buttons .accept:hover{
+    border: 0.2em solid var(--primary);
+    color: var(--primary);
+}
+
+.buttons .decline:hover{
+    border: 0.2em solid var(--error);
+    color: var(--error);
+}
