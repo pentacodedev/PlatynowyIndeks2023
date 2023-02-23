@@ -12,8 +12,8 @@ import { ApiService } from './api.service';
 })
 export class AuthService {
 
-  constructor(private api: ApiService, private router: Router) { 
-   
+  constructor(private api: ApiService, private router: Router) {
+
   }
 
   navigateHome() {
@@ -45,7 +45,7 @@ export class AuthService {
         password: password,
     }
 
-    this.api.post<User,RegisterData>("register", registerData)
+    this.api.post<User,RegisterData>("account/register", registerData)
     .subscribe({
       next: (user) => {
         this.api.user = user;
