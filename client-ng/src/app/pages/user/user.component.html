@@ -1,0 +1,36 @@
+<div class="userInfo" *ngIf="api.user != undefined">
+    <h2>Profil użytkownika {{api.user.username}}</h2>
+</div>
+<div class="container" *ngIf="api.user != undefined"
+>
+    <div class="section">
+        <h4>Informacje:</h4>
+        <p>Nazwa użytkownika: {{api.user.username}}</p>
+        <p>Imie:</p>
+        <p>Nazwisko:</p>
+        <p>Adres email:</p>
+    </div>
+    <div class="section">
+        <h4>Twoje grupy:</h4>
+        <div class="groupCard" *ngFor="let i of groups$ | async">
+            <p>Nazwa: {{i.name}}</p>
+            <p>Opis: {{i.description}}</p>
+            <div class="buttons">
+                <button class="decline">Opuść grupę</button>
+            </div>
+        </div>
+        
+    </div>
+    <div class="section">
+        <h4>Twoje lokalizacje:</h4>
+        <div class="groupCard" *ngFor="let i of objectLocation$ | async">
+            <p>{{i.name}}</p>
+            <p>{{i.description}}</p>
+        </div>
+        <div class="buttons">
+            <button class="accept" routerLink="/add-location">Dodaj nową lokalizacje</button>
+        </div>
+    </div>
+    
+</div>
+

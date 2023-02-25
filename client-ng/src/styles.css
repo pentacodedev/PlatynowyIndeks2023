@@ -39,6 +39,10 @@ html {
 body {
     height: 100%;
 }
+a {
+    color: var(--secondary);
+    font-weight: bold;
+}
 
 body {
     font-family: "Montserrat";

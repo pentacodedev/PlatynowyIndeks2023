@@ -21,6 +21,7 @@ import { GroupCardComponent } from './pages/admin/groups/group-card/group-card.c
 import { UsersCardComponent } from './pages/admin/users/users-card/users-card.component';
 import { AddLocationComponent } from './pages/add-location/add-location.component';
 import { MapPickerComponent } from './map-picker/map-picker.component';
+import { UserComponent } from './pages/user/user.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { MapPickerComponent } from './map-picker/map-picker.component';
     UsersCardComponent,
     AddLocationComponent,
     MapPickerComponent,
+    UserComponent,
   ],
   imports: [
     BrowserModule,
