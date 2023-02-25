@@ -1,12 +1,15 @@
 <h2>TeamHere</h2>
 <div *ngIf="api.user == undefined">
-    <p>Zaloguj się aby korzystać z TeamHere</p>
+    <p>
+        <a routerLink="/login">Zaloguj się</a>
+        aby korzystać z TeamHere
+    </p>
 </div>
 <div *ngIf="api.user != undefined">
     <p>Witaj: {{api.user.username}}</p>
     
 </div>
-<div class="container">
+<div class="container" *ngIf="api.user != undefined">
     <div class="userGroups">
         <p>Twoje grupy:</p>
         <div class="optionCard" *ngFor="let i of groups$ | async">{{i.name}}</div>
