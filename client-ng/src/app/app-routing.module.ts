@@ -11,27 +11,34 @@ import { LogoutComponent } from './pages/logout/logout.component';
 import { MapComponent } from './pages/map/map.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { UserComponent } from './pages/user/user.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
-  {path: 'map', component: MapComponent},
   {
-    path: 'admin', component: AdminComponent,
+    path: '',
+    runGuardsAndResolvers: 'always',
+    canActivate: [AuthGuard],
     children: [
-      {path: 'locations', component: AdminLocationsComponent },
-      {path: 'groups', component: AdminGroupsComponent },
-      {path: 'users', component: AdminUsersComponent },
-
-      {path: '', pathMatch:"prefix", redirectTo: 'locations'},
+      {
+        path: 'admin', component: AdminComponent,
+        children: [
+          {path: 'locations', component: AdminLocationsComponent },
+          {path: 'groups', component: AdminGroupsComponent },
+          {path: 'users', component: AdminUsersComponent },
+          {path: '', pathMatch:"prefix", redirectTo: 'locations'},
+        ],
+      },
+      {path: 'add-location', component: AddLocationComponent},
+      {path: 'map', component: MapComponent},
+      {path: 'logout', component: LogoutComponent},
+      {path: 'user', component: UserComponent},
+      {path: '', pathMatch:'full', redirectTo: "home"},
     ]
   },
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'add-location', component: AddLocationComponent},
-  {path: 'map', component: MapComponent},
-  {path: 'logout', component: LogoutComponent },
   {path: 'home', component: HomeComponent },
-  {path: 'user', component: UserComponent },
-  {path: '', pathMatch:'full', redirectTo: "home"},
+  {path: '**', pathMatch:'full', redirectTo: "home"},
 ];
 
 @NgModule({

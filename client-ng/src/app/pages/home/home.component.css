@@ -22,8 +22,7 @@
     transition: 0.3s;
 }
 .optionCard:hover{
-    border: 0.2em dashed var(--primary-l);
-    box-shadow: 0.35rem 0.3rem 0.3rem black 
+    border: 0.2em solid var(--primary-l);
 }
 .buttons{
     text-align: right;
@@ -42,4 +41,65 @@
 .buttons .decline:hover{
     border: 0.2em solid var(--error);
     color: var(--error);
+}
+
+h1::before {  
+    transform: scaleX(0);
+    transform-origin: bottom right;
+  }
+  
+h1:hover::before {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+  
+h1::before {
+    content: " ";
+    display: block;
+    width: 40%;
+    position: absolute;
+    inset: 0 0 0 0;
+    background: var(--secondary);
+    z-index: -1;
+    transition: transform .3s ease;
+}
+
+h1 {
+    position: relative;
+    font-size: 5rem;
+    padding: 5px 15px;
+    color: var(--primary);
+    margin: 1rem;
+}
+
+@media (orientation: landscape) {
+    body {
+        grid-auto-flow: column;
+    }
+}
+
+@keyframes slide-left {
+    from {
+        transform:  translate(100%);
+    }
+    to {
+        transform:  translate(0%);
+    }
+}
+
+.overlay {
+    min-width: fit-content;
+    animation-name: slide-left;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    box-sizing: border-box;
+    width: 30%;
+    padding: 1em;
+    background-color: var(--bg);
+    border-radius: 1em 1em 1em 1em;
+    box-shadow: -0.25em 0.25em 0.2em #0008;
+    position: sticky;
+    bottom: 45rem;
+    left: 100rem;
+    align-self: flex-end;
 }

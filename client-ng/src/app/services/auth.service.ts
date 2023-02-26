@@ -1,7 +1,6 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { resolveTypeReferenceDirective } from 'typescript/lib/tsserverlibrary';
+import { ToastrService } from 'ngx-toastr';
 import { LoginData } from '../models/LoginData';
 import { RegisterData } from '../models/RegisterData';
 import { User } from '../models/User';
@@ -36,7 +35,7 @@ export class AuthService {
       next: (user) => {
         this.api.user = user;
         this.navigateHome();
-      }
+      },
     })
   }
   register(username: string, password: string) {
@@ -50,7 +49,7 @@ export class AuthService {
       next: (user) => {
         this.api.user = user;
         this.navigateHome();
-      }
+      },
     })
   }
 }

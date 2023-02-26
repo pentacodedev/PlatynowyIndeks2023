@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders, HttpParamsOptions } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { catchError, EMPTY, Observable } from 'rxjs';
 import { Group } from '../models/Group';
 import { ObjectLocation } from '../models/ObjectLocation';
@@ -9,6 +10,13 @@ import { User } from '../models/User';
   providedIn: 'root'
 })
 export class ApiService {
+
+  constructor(private http: HttpClient, private toastr: ToastrService) {
+    let userJson = localStorage.getItem("user");
+    if (userJson != null) {
+      this._user = JSON.parse(userJson);
+    }
+  }
 
   private apiUrl: string = "https://localhost:5001/api/";
 
@@ -38,7 +46,6 @@ export class ApiService {
   }
 
   public onErr(err: any) {
-    console.error(JSON.stringify(err));
     return EMPTY;
   }
 
@@ -54,8 +61,6 @@ export class ApiService {
     }
     return authHeaders;
   }
-
-
 
   public post<TValue, TBody>(relPath: string, data: TBody) {
     return this.http.post<TValue>(this.apiUrl + relPath, data, {
@@ -78,10 +83,4 @@ export class ApiService {
   //   return this.http.get<T[]>(path + "/" + username);
   // }
 
-  constructor(private http: HttpClient) {
-    let userJson = localStorage.getItem("user");
-    if (userJson != null) {
-      this._user = JSON.parse(userJson);
-    }
-  }
 }

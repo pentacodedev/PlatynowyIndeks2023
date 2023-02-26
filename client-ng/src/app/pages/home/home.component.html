@@ -1,28 +1,29 @@
-<h2>TeamHere</h2>
+<h1>TeamHere</h1>
 <div *ngIf="api.user == undefined">
     <p>
         <a routerLink="/login">Zaloguj się</a>
         aby korzystać z TeamHere
     </p>
 </div>
-<div *ngIf="api.user != undefined">
-    <p>Witaj: {{api.user.username}}</p>
-    
-</div>
 <div class="container" *ngIf="api.user != undefined">
     <div class="userGroups">
-        <p>Twoje grupy:</p>
-        <div class="optionCard" *ngFor="let i of groups$ | async">{{i.name}}</div>
+        <h2>Twoje grupy:</h2>
+        <hr>
+        <div class="optionCard" *ngFor="let group of groups$ | async">
+            <app-group-card [group]="group" (showInfoClicked)="showInfo($event)"></app-group-card>
+        </div>
     </div>
     <div class="userGroups">
-        <p>Zbliżające się eventy:</p>
+        <h2>Zbliżające się eventy:</h2>
+        <hr>
         <div class="optionCard" *ngFor="let i of groups$ | async">
             <p>Nazwa wydarzenia:{{i.name}}</p>
             <p>Opis wydarzenia:</p>
         </div>
     </div>
     <div class="userGroups">
-        <p>Do tych eventów zostałeś zaproszony:</p>
+        <h2>Do tych eventów zostałeś zaproszony:</h2>
+        <hr>
         <div class="optionCard" *ngFor="let i of groups$ | async">
             <p>Nazwa wydarzenia:{{i.name}}</p>
             <p>Opis wydarzenia:</p>
@@ -33,4 +34,7 @@
         </div>
     </div>
 </div>
-<!-- <button type="button" (click)="logout()">Log out</button> -->
+
+<div class="overlay" *ngIf="overlayGroup">
+    <app-groups-detail [group]="overlayGroup"></app-groups-detail>
+</div>

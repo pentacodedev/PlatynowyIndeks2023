@@ -1,0 +1,45 @@
+.container{
+    padding: 1px 10px;
+    width: 70%;
+}
+h3{
+    color: white;
+}
+
+.container:hover h3{
+    color: var(--primary);
+}
+.container:hover h4{
+    color: var(--primary-l);
+}
+.icons-container{
+    position: relative;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+:host{
+    display: flex;
+}
+.button-icons{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    cursor: pointer;
+}
+.info-icon:hover{
+    color: var(--primary);
+}
+.info-icon{
+    color: var(--primary-l);
+}
+.icons{
+    display: flex;
+}
+.edit-icon{
+    color: var(--secondary-l);
+}
+.edit-icon:hover{
+    color: var(--secondary);
+}

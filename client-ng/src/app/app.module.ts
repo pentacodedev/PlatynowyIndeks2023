@@ -17,11 +17,17 @@ import { AdminLocationsComponent } from './pages/admin/locations/locations.compo
 import { AdminGroupsComponent } from './pages/admin/groups/groups.component';
 import { LocationCardComponent } from './pages/admin/locations/location-card/location-card.component';
 import { LogoutComponent } from './pages/logout/logout.component';
-import { GroupCardComponent } from './pages/admin/groups/group-card/group-card.component';
+import { GroupCardComponent } from './cards/group-card/group-card.component';
 import { UsersCardComponent } from './pages/admin/users/users-card/users-card.component';
 import { AddLocationComponent } from './pages/add-location/add-location.component';
 import { MapPickerComponent } from './map-picker/map-picker.component';
 import { UserComponent } from './pages/user/user.component';
+import { NgIconsModule, provideIcons } from '@ng-icons/core';
+import { matHome, matAdminPanelSettings, matInfo, matEdit } from '@ng-icons/material-icons/baseline';
+import { GroupsDetailComponent } from './cards/groups-detail/groups-detail.component';
+import { SmallPlayerCardComponent } from './cards/small-player-card/small-player-card.component';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -42,15 +48,22 @@ import { UserComponent } from './pages/user/user.component';
     AddLocationComponent,
     MapPickerComponent,
     UserComponent,
+    GroupsDetailComponent,
+    SmallPlayerCardComponent,
   ],
   imports: [
+    BrowserAnimationsModule,
     BrowserModule,
     AppRoutingModule,
     LeafletModule,
     ReactiveFormsModule,
     HttpClientModule,
+    NgIconsModule,
+    ToastrModule.forRoot({
+      positionClass: 'toast-bottom-right'
+    })
   ],
-  providers: [],
+  providers: [provideIcons({matHome, matAdminPanelSettings, matInfo, matEdit})],
   bootstrap: [AppComponent]
 })
 export class AppModule

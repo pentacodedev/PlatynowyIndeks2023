@@ -1,0 +1,24 @@
+<div class="content">
+    <h1>Informacje o grupie</h1>
+    <h2>{{group.name}}</h2>
+    <nav>
+        <a (click)="changeCard('description')">Opis</a>
+        <a (click)="changeCard('members')">Członkowie</a>
+        <a (click)="changeCard('admins')">Admini</a>
+        <a (click)="changeCard('events')">Wydarzenia</a>
+    </nav>
+    <div *ngIf="currentCard == 'description'">
+        <h3>{{group.description}}</h3>
+    </div>
+    <div *ngIf="currentCard == 'members'">
+        <div *ngFor="let player of groupDetailInfo?.members">
+            <app-small-player-card [player]="player"></app-small-player-card>
+        </div>
+    </div>
+    <div *ngIf="currentCard == 'admins'">
+        
+    </div>
+    <div *ngIf="currentCard == 'events'">
+
+    </div>
+</div>
