@@ -24,24 +24,6 @@
 .optionCard:hover{
     border: 0.2em solid var(--primary-l);
 }
-.buttons{
-    text-align: right;
-}
-.buttons button{
-    margin: 0.2rem;
-    border: 0.2em solid var(--fill);
-    background-color: var(--bg);
-    transition:  0.3s;
-}
-.buttons .accept:hover{
-    border: 0.2em solid var(--primary);
-    color: var(--primary);
-}
-
-.buttons .decline:hover{
-    border: 0.2em solid var(--error);
-    color: var(--error);
-}
 
 h1::before {  
     transform: scaleX(0);
@@ -88,7 +70,6 @@ h1 {
 }
 
 .overlay {
-    min-width: fit-content;
     animation-name: slide-left;
     animation-duration: 1s;
     animation-timing-function: ease-out;
@@ -102,4 +83,8 @@ h1 {
     bottom: 45rem;
     left: 100rem;
     align-self: flex-end;
+    max-width: 30%;
+}
+.clicable{
+    cursor: pointer;
 }

@@ -23,11 +23,13 @@ import { AddLocationComponent } from './pages/add-location/add-location.componen
 import { MapPickerComponent } from './map-picker/map-picker.component';
 import { UserComponent } from './pages/user/user.component';
 import { NgIconsModule, provideIcons } from '@ng-icons/core';
-import { matHome, matAdminPanelSettings, matInfo, matEdit } from '@ng-icons/material-icons/baseline';
+import { matHome, matAdminPanelSettings, matInfo, matEdit, matArrowCircleRight, matBuild, matCancel } from '@ng-icons/material-icons/baseline';
 import { GroupsDetailComponent } from './cards/groups-detail/groups-detail.component';
 import { SmallPlayerCardComponent } from './cards/small-player-card/small-player-card.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { EventCardComponent } from './cards/event-card/event-card.component';
+import { EventToAcceptCardComponent } from './cards/event-to-accept-card/event-to-accept-card.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +52,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     UserComponent,
     GroupsDetailComponent,
     SmallPlayerCardComponent,
+    EventCardComponent,
+    EventToAcceptCardComponent,
   ],
   imports: [
     BrowserAnimationsModule,
@@ -63,7 +67,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       positionClass: 'toast-bottom-right'
     })
   ],
-  providers: [provideIcons({matHome, matAdminPanelSettings, matInfo, matEdit})],
+  providers: [provideIcons({matHome, matAdminPanelSettings, matInfo, matEdit, matArrowCircleRight, matBuild, matCancel})],
   bootstrap: [AppComponent]
 })
 export class AppModule

@@ -16,25 +16,22 @@
     <div class="userGroups">
         <h2>Zbliżające się eventy:</h2>
         <hr>
-        <div class="optionCard" *ngFor="let i of groups$ | async">
-            <p>Nazwa wydarzenia:{{i.name}}</p>
-            <p>Opis wydarzenia:</p>
+        <div class="optionCard" *ngFor="let event of events$ | async">
+            <app-event-card [event]="event"></app-event-card>
         </div>
     </div>
     <div class="userGroups">
         <h2>Do tych eventów zostałeś zaproszony:</h2>
         <hr>
-        <div class="optionCard" *ngFor="let i of groups$ | async">
-            <p>Nazwa wydarzenia:{{i.name}}</p>
-            <p>Opis wydarzenia:</p>
-            <div class="buttons">
-                <button class="accept">Dołącz</button>
-                <button class="decline">Odrzuć</button>
-            </div>
+        <div class="optionCard" *ngFor="let event of invites$ | async">
+            <app-event-to-accept-card [event]="event"></app-event-to-accept-card>
         </div>
     </div>
 </div>
 
 <div class="overlay" *ngIf="overlayGroup">
+    <div (click)="backArrow()" class="clicable">
+        <ng-icon name="matArrowCircleRight" size="40" color="var(--primary)"></ng-icon>
+    </div>
     <app-groups-detail [group]="overlayGroup"></app-groups-detail>
 </div>
