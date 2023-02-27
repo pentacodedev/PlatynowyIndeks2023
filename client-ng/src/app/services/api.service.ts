@@ -68,6 +68,7 @@ export class ApiService {
     }).pipe(catchError(this.onErr))
   }
 
+
   public getByName<T>(relPath: string, name: string): Observable<T> {
     return this.http.get<T>(this.apiUrl + relPath + "/" + name, {
       headers: this.getHeaders(),

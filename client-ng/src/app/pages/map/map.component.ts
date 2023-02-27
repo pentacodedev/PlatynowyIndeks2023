@@ -2,6 +2,7 @@ import { ChangeDetectorRef, Component, Input, NgZone, OnInit } from '@angular/co
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { icon, latLng, MapOptions, Marker, marker, tileLayer } from 'leaflet';
 import { map, Observable } from 'rxjs';
+import { EventModel } from 'src/app/models/EventModel';
 import { LocationModel } from 'src/app/models/LocationModel';
 import { ApiService } from 'src/app/services/api.service';
 
@@ -13,6 +14,7 @@ import { ApiService } from 'src/app/services/api.service';
 export class MapComponent implements OnInit {
 
   selectedLocation?: LocationModel;
+  selectedEvents$?: Observable<EventModel[]>;
   sanitizedUrl?: SafeUrl;
 
   constructor(private api: ApiService, private zone: NgZone,private changeDetector: ChangeDetectorRef, private sanitizer: DomSanitizer) { }
@@ -47,9 +49,13 @@ export class MapComponent implements OnInit {
   onLocationClick(loc: LocationModel) {
     this.zone.run(() => {
       this.selectedLocation = loc;
+      this.selectedEvents$ = this.api.getAll<EventModel>(`locations/event-for-location/${loc.id}`);
       this.sanitizedUrl = this.sanitizer.bypassSecurityTrustUrl("geo:" + loc.coordLat + "," + loc.coordLon);
       this.changeDetector.detectChanges();
     })
+  }
+
+  joinEvent(ev: EventModel) {
   }
 
 }

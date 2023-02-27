@@ -20,3 +20,18 @@
 .info>h2, .info>h3, .info>h4 {
     padding-top: 0.5rem;
 }
+.events {
+    border-radius: 1rem;
+    background-color: var(--bg);
+    position: absolute;
+    bottom: 2rem;
+    left:2rem;
+    width: 20em;
+    z-index: 999;
+    padding: 1rem;
+}
+.event { 
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border: 0.2rem solid var(--fill);
+}

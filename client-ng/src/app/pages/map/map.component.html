@@ -9,6 +9,24 @@
     <a [href]="sanitizedUrl">lokalizacja</a>
 </div>
 
+<div class="events" *ngIf="selectedEvents$ | async">
+    <h2>Wydarzenia:</h2>
+    <div class="event" *ngFor="let ev of selectedEvents$ | async">
+        <h3>{{ev.name}}</h3>
+        <p>
+            Utworzone przez: {{ev.eventHost.userName}}
+        </p>
+        <p>
+            Od: {{ev.dateOfStart | date:'short'}} <br>
+            Do: {{ev.dateOfEnd | date:'short'}}
+        </p>
+        <p>
+            Uczestników: {{ev.confirmedParticipants.length}}
+        </p>
+        <button (click)="joinEvent(ev)">Dołącz</button>
+    </div>
+</div>
+
 <div id="map"
 leaflet
 [leafletOptions]="options"
