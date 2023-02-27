@@ -1,9 +1,14 @@
 <ng-container *ngIf="group">
 <h1>Profil grupy {{group.name}}</h1>
 <div class="information">
-    <h3>Ilość członków:  {{(users$ | async )?.length}}</h3>
+    
 </div>
 <div class="container">
+    <div class="section">
+        <h3>Informacje o grupie:</h3>
+        <h4>Ilość członków:  {{(users$ | async )?.length}}</h4>
+        <h4>Opis grupy: {{group.description}}</h4>
+    </div>
     <div class="section">
         <h3>Użytkownicy</h3>
         <app-members-view *ngFor="let user of users$ | async" [user]="user"></app-members-view>

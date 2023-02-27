@@ -32,7 +32,6 @@ import { EventCardComponent } from './cards/event-card/event-card.component';
 import { EventToAcceptCardComponent } from './cards/event-to-accept-card/event-to-accept-card.component';
 import { GroupViewComponent } from './pages/group-view/group-view.component';
 import { MembersViewComponent } from './pages/group-view/members-view/members-view.component';
-import { EventViewComponent } from './pages/group-view/event-view/event-view.component';
 import { LocationViewComponent } from './pages/group-view/location-view/location-view.component';
 
 
@@ -61,7 +60,6 @@ import { LocationViewComponent } from './pages/group-view/location-view/location
     EventToAcceptCardComponent,
     GroupViewComponent,
     MembersViewComponent,
-    EventViewComponent,
     LocationViewComponent,
   ],
   imports: [
