@@ -5,3 +5,4 @@ leaflet
     <div *ngFor="let marker of markers$ | async" [leafletLayer]="marker"></div>
 </div>
 <app-location-card *ngIf="selectedLocation" [location]="selectedLocation"></app-location-card>
+<p *ngIf="selectedLocation">{{selectedLocation.name}}</p>

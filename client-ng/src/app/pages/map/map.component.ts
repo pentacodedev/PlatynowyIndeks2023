@@ -1,5 +1,4 @@
-import { Component, Input, NgZone, OnInit } from '@angular/core';
-import { matAirlineSeatReclineNormal } from '@ng-icons/material-icons/baseline';
+import { ChangeDetectorRef, Component, Input, NgZone, OnInit } from '@angular/core';
 import { latLng, MapOptions, Marker, marker, tileLayer } from 'leaflet';
 import { map, Observable } from 'rxjs';
 import { ObjectLocation } from 'src/app/models/ObjectLocation';
@@ -14,7 +13,7 @@ export class MapComponent implements OnInit {
 
   selectedLocation?: ObjectLocation;
 
-  constructor(private api: ApiService, private zone: NgZone) { }
+  constructor(private api: ApiService, private zone: NgZone,private changeDetector: ChangeDetectorRef) { }
 
   markers$!: Observable<Marker[]>;
 
@@ -42,7 +41,12 @@ export class MapComponent implements OnInit {
   }
 
   onLocationClick(loc: ObjectLocation) {
-    alert(JSON.stringify(loc));
+    this.zone.run(() => {
+      this.selectedLocation = loc;
+      alert(this.selectedLocation.name)
+      console.log(this.selectedLocation.name);
+      this.changeDetector.detectChanges();
+    })
   }
 
 }
