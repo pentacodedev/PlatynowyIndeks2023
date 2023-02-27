@@ -81,8 +81,8 @@ export class ApiService {
     }).pipe(catchError(this.onErr))
   }
 
-  public getAllLocations(): Observable<ObjectLocation[]> {
-    return this.http.get<ObjectLocation[]>(this.apiUrl + "locations/accepted-locations", {
+  public getAllLocations(): Observable<LocationModel[]> {
+    return this.http.get<LocationModel[]>(this.apiUrl + "locations/accepted-locations", {
       headers: this.getHeaders(),
     }).pipe(catchError(this.onErr))
   }
