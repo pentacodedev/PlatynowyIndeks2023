@@ -4,3 +4,8 @@
     margin-top: 1rem;
     gap: 1rem;
 }
+app-group-card {
+    border: 0.2rem solid var(--fill);
+    padding: 1rem;
+    border-radius: 0.5rem;
+}

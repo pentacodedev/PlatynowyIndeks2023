@@ -26,12 +26,18 @@ nav a {
     transition:  0.3s;
 }
 .buttons .accept:hover{
+    /*
     border: 0.2em solid #3c58e6;
     color: #3c58e6;
+    */
+    border: 0.2em solid var(--primary);
+    color: var(--primary);
+    background-color:  var(--primary-t);
 }
 .buttons .decline:hover{
     border: 0.2em solid var(--error);
     color: var(--error);
+    background-color:  var(--error-t);
 }
 .section{
     height: 100%;

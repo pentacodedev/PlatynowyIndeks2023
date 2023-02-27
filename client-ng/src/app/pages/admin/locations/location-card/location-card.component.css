@@ -1,4 +1,4 @@
-.locationCard{
+.locationCard {
     border: 0.2em solid var(--fill);
     padding: 1.5rem;
     height: 100%;
@@ -24,9 +24,11 @@
 .buttons .accept:hover{
     border: 0.2em solid var(--primary);
     color: var(--primary);
+    background-color: var(--primary-t);
 }
 
 .buttons .decline:hover{
     border: 0.2em solid var(--error);
     color: var(--error);
+    background-color: var(--error-t);
 }

@@ -9,11 +9,13 @@
 }
 .buttons .accept:hover{
     border: 0.2em solid var(--primary);
+    background-color: var(--primary-t);
     color: var(--primary);
 }
 
 .buttons .decline:hover{
     border: 0.2em solid var(--error);
+    background-color: var(--error-t);
     color: var(--error);
 }
 h3{
