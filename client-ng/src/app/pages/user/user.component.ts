@@ -1,10 +1,10 @@
 import { Component, Input } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
-import { User } from 'src/app/models/User';
+import { UserModel } from 'src/app/models/UserModel';
 import { AuthService } from 'src/app/services/auth.service';
-import { Player } from 'src/app/models/Player';
-import { Group } from 'src/app/models/Group';
-import { ObjectLocation } from 'src/app/models/ObjectLocation';
+import { PlayerModel } from 'src/app/models/PlayerModel';
+import { GroupModel } from 'src/app/models/GroupModel';
+import { LocationModel } from 'src/app/models/LocationModel';
 
 @Component({
   selector: 'app-user',
@@ -12,9 +12,9 @@ import { ObjectLocation } from 'src/app/models/ObjectLocation';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent {
-  @Input() Player!: Player;
-  groups$ = this.api.getAll<Group>("groups/your-groups");
-  objectLocation$ = this.api.getAll<ObjectLocation>("");
+  @Input() Player!: PlayerModel;
+  groups$ = this.api.getAll<GroupModel>("groups/your-groups");
+  objectLocation$ = this.api.getAll<LocationModel>("");
 constructor(protected api: ApiService){}
 
 }

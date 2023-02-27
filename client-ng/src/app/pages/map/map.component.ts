@@ -2,7 +2,7 @@ import { ChangeDetectorRef, Component, Input, NgZone, OnInit } from '@angular/co
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { icon, latLng, MapOptions, Marker, marker, tileLayer } from 'leaflet';
 import { map, Observable } from 'rxjs';
-import { ObjectLocation } from 'src/app/models/ObjectLocation';
+import { LocationModel } from 'src/app/models/LocationModel';
 import { ApiService } from 'src/app/services/api.service';
 
 @Component({
@@ -12,7 +12,7 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class MapComponent implements OnInit {
 
-  selectedLocation?: ObjectLocation;
+  selectedLocation?: LocationModel;
   sanitizedUrl?: SafeUrl;
 
   constructor(private api: ApiService, private zone: NgZone,private changeDetector: ChangeDetectorRef, private sanitizer: DomSanitizer) { }
@@ -36,7 +36,7 @@ export class MapComponent implements OnInit {
   }
 
 
-  markerToLoc(loc: ObjectLocation): Marker {
+  markerToLoc(loc: LocationModel): Marker {
     let mark = marker([loc.coordLat, loc.coordLon], {
       icon: icon({iconUrl:"assets/pin.svg",iconRetinaUrl:"assets/pin.svg", iconSize:[30,30], iconAnchor:[15,30]})
     });
@@ -44,7 +44,7 @@ export class MapComponent implements OnInit {
     return mark;
   }
 
-  onLocationClick(loc: ObjectLocation) {
+  onLocationClick(loc: LocationModel) {
     this.zone.run(() => {
       this.selectedLocation = loc;
       this.sanitizedUrl = this.sanitizer.bypassSecurityTrustUrl("geo:" + loc.coordLat + "," + loc.coordLon);

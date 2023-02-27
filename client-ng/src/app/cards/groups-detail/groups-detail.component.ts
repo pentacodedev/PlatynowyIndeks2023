@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Group } from 'src/app/models/Group';
-import { GroupEvent } from 'src/app/models/GroupEvent';
-import { Player } from 'src/app/models/Player';
+import { GroupModel } from 'src/app/models/GroupModel';
+import { EventModel } from 'src/app/models/EventModel';
+import { PlayerModel } from 'src/app/models/PlayerModel';
 
 @Component({
   selector: 'app-groups-detail',
@@ -10,7 +10,7 @@ import { Player } from 'src/app/models/Player';
 })
 export class GroupsDetailComponent implements OnInit{
 
-  @Input() group!: Group;
+  @Input() group!: GroupModel;
   currentCard: string = "description";
 
   ngOnInit(): void

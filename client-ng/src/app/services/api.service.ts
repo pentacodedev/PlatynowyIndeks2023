@@ -2,9 +2,9 @@ import { HttpClient, HttpHeaders, HttpParamsOptions } from '@angular/common/http
 import { Injectable } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { catchError, EMPTY, Observable } from 'rxjs';
-import { Group } from '../models/Group';
-import { ObjectLocation } from '../models/ObjectLocation';
-import { User } from '../models/User';
+import { GroupModel } from '../models/GroupModel';
+import { LocationModel } from '../models/LocationModel';
+import { UserModel } from '../models/UserModel';
 
 @Injectable({
   providedIn: 'root'
@@ -20,13 +20,13 @@ export class ApiService {
 
   private apiUrl: string = "https://localhost:5001/api/";
 
-  private _user?: User;
+  private _user?: UserModel;
 
-  public get user(): User | undefined { 
+  public get user(): UserModel | undefined { 
     return this._user;
   }
 
-  public set user(val: User | undefined) { 
+  public set user(val: UserModel | undefined) { 
     if (val) {
       localStorage.setItem("user", JSON.stringify(val));
     }
@@ -80,8 +80,8 @@ export class ApiService {
     }).pipe(catchError(this.onErr))
   }
 
-  public getAllLocations(): Observable<ObjectLocation[]> {
-    return this.getAll<ObjectLocation>("locations");
+  public getAllLocations(): Observable<LocationModel[]> {
+    return this.getAll<LocationModel>("locations");
   }
 
   // public getAllByUserName<T>(path: string, username: string){

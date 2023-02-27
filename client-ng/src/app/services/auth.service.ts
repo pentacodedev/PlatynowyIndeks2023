@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { LoginData } from '../models/LoginData';
 import { RegisterData } from '../models/RegisterData';
-import { User } from '../models/User';
+import { UserModel } from '../models/UserModel';
 import { ApiService } from './api.service';
 
 @Injectable({
@@ -30,7 +30,7 @@ export class AuthService {
         password: password,
     }
 
-    this.api.post<User,LoginData>("account/login", loginData)
+    this.api.post<UserModel,LoginData>("account/login", loginData)
     .subscribe({
       next: (user) => {
         this.api.user = user;
@@ -44,7 +44,7 @@ export class AuthService {
         password: password,
     }
 
-    this.api.post<User,RegisterData>("account/register", registerData)
+    this.api.post<UserModel,RegisterData>("account/register", registerData)
     .subscribe({
       next: (user) => {
         this.api.user = user;

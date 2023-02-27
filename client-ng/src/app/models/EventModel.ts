@@ -1,4 +1,4 @@
-export class GroupEvent
+export class EventModel
 {
     constructor(
         public id: number,

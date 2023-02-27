@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Group } from "src/app/models/Group";
+import { GroupModel } from "src/app/models/GroupModel";
 
 @Component({
   selector: 'app-group-card',
@@ -7,8 +7,8 @@ import { Group } from "src/app/models/Group";
   styleUrls: ['./group-card.component.css'],
 })
 export class GroupCardComponent {
-  @Input() group!: Group;
-  @Output() showInfoClicked = new EventEmitter<Group>();
+  @Input() group!: GroupModel;
+  @Output() showInfoClicked = new EventEmitter<GroupModel>();
   
   onInfoClick(){
     this.showInfoClicked.emit(this.group)

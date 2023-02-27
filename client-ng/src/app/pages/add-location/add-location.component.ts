@@ -2,7 +2,7 @@ import { JsonPipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { latLng, LatLng } from 'leaflet';
-import { LocationDto } from 'src/app/models/LocationDTO';
+import { LocationModel } from 'src/app/models/LocationModel';
 import { ApiService } from 'src/app/services/api.service';
 
 @Component({
@@ -29,11 +29,10 @@ export class AddLocationComponent {
   onAddLocFormSubmit() {
     let data = this.addLocForm.value;
     data = {...data, ...{location: this.selectedLocation}}
-    alert(JSON.stringify(data));
 
     if(!this.selectedLocation) return;
 
-    this.api.post<any, LocationDto>("locations/add-new-location", new LocationDto(
+    this.api.post<any, LocationModel>("locations/add-new-location", new LocationModel(
       0,
       data.name ?? "",
       data.address ?? "",

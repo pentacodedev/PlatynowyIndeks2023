@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EMPTY, Observable } from 'rxjs';
-import { ObjectLocation } from 'src/app/models/ObjectLocation';
+import { LocationModel } from 'src/app/models/LocationModel';
 import { AdminService } from 'src/app/services/admin.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { AdminService } from 'src/app/services/admin.service';
 })
 export class AdminLocationsComponent implements OnInit{
 
-  locationsArray$: Observable<ObjectLocation[]> = EMPTY;
+  locationsArray$: Observable<LocationModel[]> = EMPTY;
 
   constructor(private admin: AdminService) {}
 

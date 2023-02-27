@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { ObjectLocation } from 'src/app/models/ObjectLocation';
+import { LocationModel } from 'src/app/models/LocationModel';
 
 @Component({
   selector: 'app-location-view',
@@ -8,5 +8,5 @@ import { ObjectLocation } from 'src/app/models/ObjectLocation';
 })
 export class LocationViewComponent {
   @Input()
-  location?: ObjectLocation;
+  location?: LocationModel;
 }

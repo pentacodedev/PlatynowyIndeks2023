@@ -1,4 +1,4 @@
-export class ObjectLocation {
+export class LocationModel {
     constructor(
         public id: number,
         public name: string,
@@ -6,7 +6,7 @@ export class ObjectLocation {
         public description: string,
         public coordLat: number,
         public coordLon: number,
-        public locationOwner: string,
-        public isPrivateLocation: boolean
+        public isPrivateLocation: boolean,
+        public locationOwner?: string,
     ) {}
 }

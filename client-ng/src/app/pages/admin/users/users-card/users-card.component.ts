@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { Player } from 'src/app/models/Player';
-import { User } from 'src/app/models/User';
+import { PlayerModel } from 'src/app/models/PlayerModel';
+import { UserModel } from 'src/app/models/UserModel';
 
 @Component({
   selector: 'app-users-card',
@@ -9,5 +9,5 @@ import { User } from 'src/app/models/User';
 })
 export class UsersCardComponent {
   @Input()
-  user!: Player;
+  user!: PlayerModel;
 }

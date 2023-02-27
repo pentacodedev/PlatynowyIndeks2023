@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { catchError, EMPTY, empty, of } from 'rxjs';
-import { Group } from '../models/Group';
-import { ObjectLocation } from '../models/ObjectLocation';
-import { Player } from '../models/Player';
+import { GroupModel } from '../models/GroupModel';
+import { LocationModel } from '../models/LocationModel';
+import { PlayerModel } from '../models/PlayerModel';
 import { ApiService } from './api.service';
 
 @Injectable({
@@ -13,13 +13,13 @@ export class AdminService {
   }
 
   getAllUsers() { 
-    return this.api.getAll<Player>("users");
+    return this.api.getAll<PlayerModel>("users");
   }
   getAllLocations(){
-    return this.api.getAll<ObjectLocation>("locations/locations-to-accept");
+    return this.api.getAll<LocationModel>("locations/locations-to-accept");
   }
 
   getAllGroups() {
-    return this.api.getAll<Group>("groups");
+    return this.api.getAll<GroupModel>("groups");
   }
 }

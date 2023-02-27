@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { GroupEvent } from 'src/app/models/GroupEvent';
+import { EventModel } from 'src/app/models/EventModel';
 
 @Component({
   selector: 'app-event-to-accept-card',
@@ -7,5 +7,5 @@ import { GroupEvent } from 'src/app/models/GroupEvent';
   styleUrls: ['./event-to-accept-card.component.css']
 })
 export class EventToAcceptCardComponent {
-  @Input() event!: GroupEvent;
+  @Input() event!: EventModel;
 }

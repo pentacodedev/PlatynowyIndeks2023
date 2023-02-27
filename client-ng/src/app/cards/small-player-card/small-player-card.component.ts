@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Player } from 'src/app/models/Player';
+import { PlayerModel } from 'src/app/models/PlayerModel';
 
 @Component({
   selector: 'app-small-player-card',
@@ -7,5 +7,5 @@ import { Player } from 'src/app/models/Player';
   styleUrls: ['./small-player-card.component.css']
 })
 export class SmallPlayerCardComponent {
-  @Input() player!: Player;
+  @Input() player!: PlayerModel;
 }
