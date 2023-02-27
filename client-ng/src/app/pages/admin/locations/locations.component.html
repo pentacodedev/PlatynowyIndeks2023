@@ -1,5 +1,5 @@
     <div class="container">
-        <app-location-card *ngFor="let i of locationsArray$ | async" [location]="i">
+        <app-location-card (updateLocations)="updateLocations($event)" *ngFor="let i of locationsArray$ | async" [location]="i">
         
         </app-location-card>
     </div>
