@@ -2,3 +2,12 @@
     height: 100%;
     border-radius: 1em;
 }
+
+.info {
+    background-color: var(--bg);
+    position: absolute;
+    bottom: 2rem;
+    right:2rem;
+    width: 20rem;
+    z-index: 999;
+}

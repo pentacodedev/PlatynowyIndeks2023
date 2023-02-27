@@ -43,8 +43,6 @@ export class MapComponent implements OnInit {
   onLocationClick(loc: ObjectLocation) {
     this.zone.run(() => {
       this.selectedLocation = loc;
-      alert(this.selectedLocation.name)
-      console.log(this.selectedLocation.name);
       this.changeDetector.detectChanges();
     })
   }
