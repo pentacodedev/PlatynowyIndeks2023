@@ -11,9 +11,6 @@
         <h3>{{group.description}}</h3>
     </div>
     <div *ngIf="currentCard == 'members'">
-        <div *ngFor="let player of groupDetailInfo?.members">
-            <app-small-player-card [player]="player"></app-small-player-card>
-        </div>
     </div>
     <div *ngIf="currentCard == 'admins'">
         
