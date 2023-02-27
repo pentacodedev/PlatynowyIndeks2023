@@ -1,8 +1,10 @@
 <div class="userCard">
     <div id="photo">
-        <img src="{{user.photoUrl}}" alt="Brak zdjęcia">
+        <img src="{{user.photo}}" alt="Brak zdjęcia">
     </div>
     <div class="content">
-        <p>Nazwa użytkownika: {{user.userName}}</p>
+        <h3>Nazwa użytkownika: {{user.userName | titlecase}}</h3>
+        <h5>Email: {{user.email}}</h5>
+        <h5>Full name: {{user.firstName | titlecase}} {{user.surname | titlecase}}</h5>
     </div>
 </div>
