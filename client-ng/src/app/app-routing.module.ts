@@ -13,6 +13,7 @@ import { RegisterComponent } from './pages/register/register.component';
 import { UserComponent } from './pages/user/user.component';
 import { AuthGuard } from './guards/auth.guard';
 import { GroupViewComponent } from './pages/group-view/group-view.component';
+import { EventsComponent } from './pages/admin/events/events.component';
 
 const routes: Routes = [
   {path: '', pathMatch:'full', redirectTo: "home"},
@@ -27,6 +28,7 @@ const routes: Routes = [
           {path: 'locations', component: AdminLocationsComponent },
           {path: 'groups', component: AdminGroupsComponent },
           {path: 'users', component: AdminUsersComponent },
+          {path: 'events', component:  EventsComponent},
           {path: '', pathMatch:"prefix", redirectTo: 'locations'},
         ],
       },
