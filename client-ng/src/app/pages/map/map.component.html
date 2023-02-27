@@ -2,5 +2,6 @@
 leaflet
 [leafletOptions]="options"
 >
-    <div *ngFor="let marker of markers$ | async" [leafletLayer]="marker" (click)="onMarkerClick(marker)"></div>
+    <div *ngFor="let marker of markers$ | async" [leafletLayer]="marker"></div>
 </div>
+<app-location-card *ngIf="selectedLocation" [location]="selectedLocation"></app-location-card>

@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, NgZone, OnInit } from '@angular/core';
+import { matAirlineSeatReclineNormal } from '@ng-icons/material-icons/baseline';
 import { latLng, MapOptions, Marker, marker, tileLayer } from 'leaflet';
 import { map, Observable } from 'rxjs';
 import { ObjectLocation } from 'src/app/models/ObjectLocation';
@@ -11,11 +12,9 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class MapComponent implements OnInit {
 
-  onMarkerClick(marker: Marker<any>) {
-    alert('oop');
-  }
+  selectedLocation?: ObjectLocation;
 
-  constructor(private api: ApiService) { }
+  constructor(private api: ApiService, private zone: NgZone) { }
 
   markers$!: Observable<Marker[]>;
 
@@ -32,7 +31,18 @@ export class MapComponent implements OnInit {
   };
 
   ngOnInit(): void {
-    this.markers$ = this.api.getAllLocations().pipe(map(x=>x.map(x=>marker([x.coordLat, x.coordLon]))));
+    this.markers$ = this.api.getAllLocations().pipe(map(x=>x.map(this.markerToLoc.bind(this))));
+  }
+
+
+  markerToLoc(loc: ObjectLocation): Marker {
+    let mark = marker([loc.coordLat, loc.coordLon], {});
+    mark.on("click", this.onLocationClick.bind(this,loc));
+    return mark;
+  }
+
+  onLocationClick(loc: ObjectLocation) {
+    alert(JSON.stringify(loc));
   }
 
 }
