@@ -34,7 +34,6 @@ import { GroupViewComponent } from './pages/group-view/group-view.component';
 import { MembersViewComponent } from './pages/group-view/members-view/members-view.component';
 import { LocationViewComponent } from './pages/group-view/location-view/location-view.component';
 import { EventsComponent } from './pages/admin/events/events.component';
-import { EventsCardComponent } from './cards/events-card/events-card.component';
 
 
 @NgModule({
@@ -64,7 +63,6 @@ import { EventsCardComponent } from './cards/events-card/events-card.component';
     MembersViewComponent,
     LocationViewComponent,
     EventsComponent,
-    EventsCardComponent,
   ],
   imports: [
     BrowserAnimationsModule,

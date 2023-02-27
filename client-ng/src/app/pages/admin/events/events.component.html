@@ -1,1 +1,3 @@
-<p>events works!</p>
+<div class="container">
+    <app-event-card *ngFor="let i of events$ | async" [event]="i"></app-event-card>
+</div>

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { catchError, EMPTY, empty, of } from 'rxjs';
+import { EventModel } from '../models/EventModel';
 import { GroupModel } from '../models/GroupModel';
 import { LocationModel } from '../models/LocationModel';
 import { PlayerModel } from '../models/PlayerModel';
@@ -21,5 +22,8 @@ export class AdminService {
 
   getAllGroups() {
     return this.api.getAll<GroupModel>("groups");
+  }
+  getAllEvents() {
+    return this.api.getAll<EventModel>("events");
   }
 }
