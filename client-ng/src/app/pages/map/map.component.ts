@@ -1,6 +1,6 @@
 import { ChangeDetectorRef, Component, Input, NgZone, OnInit } from '@angular/core';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
-import { latLng, MapOptions, Marker, marker, tileLayer } from 'leaflet';
+import { icon, latLng, MapOptions, Marker, marker, tileLayer } from 'leaflet';
 import { map, Observable } from 'rxjs';
 import { ObjectLocation } from 'src/app/models/ObjectLocation';
 import { ApiService } from 'src/app/services/api.service';
@@ -37,7 +37,9 @@ export class MapComponent implements OnInit {
 
 
   markerToLoc(loc: ObjectLocation): Marker {
-    let mark = marker([loc.coordLat, loc.coordLon], {});
+    let mark = marker([loc.coordLat, loc.coordLon], {
+      icon: icon({iconUrl:"assets/pin.svg",iconRetinaUrl:"assets/pin.svg", iconSize:[30,30], iconAnchor:[15,30]})
+    });
     mark.on("click", this.onLocationClick.bind(this,loc));
     return mark;
   }

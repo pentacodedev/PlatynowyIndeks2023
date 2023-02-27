@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { LatLng, latLng, LeafletMouseEvent, MapOptions, Marker, marker, tileLayer } from 'leaflet';
+import { icon, LatLng, latLng, LeafletMouseEvent, MapOptions, Marker, marker, tileLayer } from 'leaflet';
 
 @Component({
   selector: 'app-map-picker',
@@ -16,7 +16,9 @@ export class MapPickerComponent {
 
   onMapClick(ev: LeafletMouseEvent) {
     this.selectedLocation = ev.latlng;
-    this.marker = marker(this.selectedLocation);
+    this.marker = marker(this.selectedLocation, {
+      icon: icon({iconUrl:"assets/pin.svg",iconRetinaUrl:"assets/pin.svg", iconSize:[30,30], iconAnchor:[15,30]})
+    });
     this.onLocationSelected.emit(this.selectedLocation);
   }
 
