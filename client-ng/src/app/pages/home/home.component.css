@@ -38,19 +38,23 @@ h1:hover::before {
 h1::before {
     content: " ";
     display: block;
-    width: 40%;
     position: absolute;
-    inset: 0 0 0 0;
-    background: var(--secondary);
+    height: 10%;
+    bottom: 0;
+    left:0;
+    right: 0;
+    background: var(--primary);
     z-index: -1;
     transition: transform .3s ease;
 }
 
 h1 {
+    font-weight: 480;
     position: relative;
     font-size: 5rem;
+    width: fit-content;
     padding: 5px 15px;
-    color: var(--primary);
+    color: var(--fg);
     margin: 1rem;
 }
 
@@ -87,4 +91,9 @@ h1 {
 }
 .clicable{
     cursor: pointer;
+}
+
+.here {
+    color: var(--primary);
+    font-weight: 700;
 }
