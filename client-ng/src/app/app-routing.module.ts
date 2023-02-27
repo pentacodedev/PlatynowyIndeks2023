@@ -14,6 +14,7 @@ import { UserComponent } from './pages/user/user.component';
 import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
+  {path: '', pathMatch:'full', redirectTo: "home"},
   {
     path: '',
     runGuardsAndResolvers: 'always',
