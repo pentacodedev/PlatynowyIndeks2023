@@ -5,8 +5,8 @@
         <p>Opis: {{location.description}}</p> 
     </div>
     <div class="buttons">
-        <button class="accept">Zatwierdź</button>
-        <button class="decline">Odrzuć</button>
+        <button (click)="accept()" class="accept">Zatwierdź</button>
+        <button (click)="decline()"class="decline">Odrzuć</button>
     </div>
 </div>
 

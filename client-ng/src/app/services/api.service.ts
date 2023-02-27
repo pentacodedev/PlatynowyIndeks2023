@@ -81,7 +81,22 @@ export class ApiService {
   }
 
   public getAllLocations(): Observable<ObjectLocation[]> {
-    return this.getAll<ObjectLocation>("locations");
+    return this.http.get<ObjectLocation[]>(this.apiUrl + "locations/accepted-locations", {
+      headers: this.getHeaders(),
+    }).pipe(catchError(this.onErr))
+  }
+
+  public deleteLocationWithId(id: number){
+    return this.http.delete(this.apiUrl + "locations/" + id, {
+      headers: this.getHeaders(),
+    }).pipe(catchError(this.onErr))
+  }
+
+  public acceptLocationWithId(id: number){
+    console.log("asd")
+    return this.http.get(this.apiUrl + "locations/accept-location/" + id, {
+      headers: this.getHeaders(),
+    }).pipe(catchError(this.onErr))
   }
 
   // public getAllByUserName<T>(path: string, username: string){
