@@ -12,7 +12,6 @@ export class AuthGuard implements CanActivate {
   constructor(private apiService: ApiService, private toastr: ToastrService){}
 
   canActivate(): Observable<boolean>{
-    debugger;
     if(this.apiService.user != null)
       return of(true);
     else

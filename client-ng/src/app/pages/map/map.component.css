@@ -29,6 +29,8 @@
     width: 20em;
     z-index: 999;
     padding: 1rem;
+    max-height: 30rem;
+    overflow:  auto;
 }
 .event { 
     padding: 0.5rem;
