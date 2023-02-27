@@ -1,0 +1,9 @@
+.memberCard{
+    border: 0.2em dashed var(--fill);
+    border-radius: 0.2em;
+    transition: 0.3s;
+    margin: 0.3rem;
+}
+.memberCard:hover{
+    border: 0.2em dashed var(--primary-l); 
+}

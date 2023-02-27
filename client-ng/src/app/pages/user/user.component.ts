@@ -12,8 +12,7 @@ import { ObjectLocation } from 'src/app/models/ObjectLocation';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent {
-  @Input()
-  Player!: Player;
+  @Input() Player!: Player;
   groups$ = this.api.getAll<Group>("groups/your-groups");
   objectLocation$ = this.api.getAll<ObjectLocation>("");
 constructor(protected api: ApiService){}

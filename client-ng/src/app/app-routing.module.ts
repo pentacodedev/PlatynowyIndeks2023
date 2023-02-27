@@ -12,6 +12,7 @@ import { MapComponent } from './pages/map/map.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { UserComponent } from './pages/user/user.component';
 import { AuthGuard } from './guards/auth.guard';
+import { GroupViewComponent } from './pages/group-view/group-view.component';
 
 const routes: Routes = [
   {path: '', pathMatch:'full', redirectTo: "home"},
@@ -30,6 +31,7 @@ const routes: Routes = [
         ],
       },
       {path: 'add-location', component: AddLocationComponent},
+      {path: 'group-profile/:name', component: GroupViewComponent},
       {path: 'map', component: MapComponent},
       {path: 'logout', component: LogoutComponent},
       {path: 'user', component: UserComponent},

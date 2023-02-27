@@ -1,0 +1,16 @@
+<ng-container *ngIf="group">
+<h1>Profil grupy {{group.name}}</h1>
+<div class="information">
+    <h3>Ilość członków:  {{(users$ | async )?.length}}</h3>
+</div>
+<div class="container">
+    <div class="section">
+        <h3>Użytkownicy</h3>
+        <app-members-view *ngFor="let user of users$ | async" [user]="user"></app-members-view>
+    </div>
+    <div class="section">
+        <h3>Lokalizacje</h3>
+        <app-location-view *ngFor="let location of locations$ | async" [location]="location"></app-location-view>
+    </div>
+</div>
+</ng-container>

@@ -1,0 +1,19 @@
+.container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 1rem;
+    gap: 1rem;
+    
+}
+.section{
+    border: 0.2em solid var(--fill);
+    border-radius: 0.5rem;
+    transition: 0.3s;
+}
+.section:hover{
+    border: 0.2em solid var(--secondary);
+}
+.information{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
