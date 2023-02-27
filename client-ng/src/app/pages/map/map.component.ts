@@ -1,4 +1,5 @@
 import { ChangeDetectorRef, Component, Input, NgZone, OnInit } from '@angular/core';
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { latLng, MapOptions, Marker, marker, tileLayer } from 'leaflet';
 import { map, Observable } from 'rxjs';
 import { ObjectLocation } from 'src/app/models/ObjectLocation';
@@ -12,8 +13,9 @@ import { ApiService } from 'src/app/services/api.service';
 export class MapComponent implements OnInit {
 
   selectedLocation?: ObjectLocation;
+  sanitizedUrl?: SafeUrl;
 
-  constructor(private api: ApiService, private zone: NgZone,private changeDetector: ChangeDetectorRef) { }
+  constructor(private api: ApiService, private zone: NgZone,private changeDetector: ChangeDetectorRef, private sanitizer: DomSanitizer) { }
 
   markers$!: Observable<Marker[]>;
 
@@ -43,6 +45,7 @@ export class MapComponent implements OnInit {
   onLocationClick(loc: ObjectLocation) {
     this.zone.run(() => {
       this.selectedLocation = loc;
+      this.sanitizedUrl = this.sanitizer.bypassSecurityTrustUrl("geo:" + loc.coordLat + "," + loc.coordLon);
       this.changeDetector.detectChanges();
     })
   }

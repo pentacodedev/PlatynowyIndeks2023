@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
-:root {
 
+:root {
     --fg: hsl(220, 7%, 92%);
     --bg: hsl(224, 10%, 21%);
     --fill: hsl(223, 10%, 36%);
@@ -51,6 +51,10 @@ body {
     background-color: var(--bg);
     margin: 0;
     padding: 0;
+}
+
+.text-primary {
+    color: var(--primary);
 }
 
 .form {

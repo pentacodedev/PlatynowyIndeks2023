@@ -1,4 +1,14 @@
-<app-location-card class="info" *ngIf="selectedLocation" [location]="selectedLocation"></app-location-card>
+<div class="info" *ngIf="selectedLocation">
+    <h2>Obiekt: <span class="text-primary">{{selectedLocation.name}}</span></h2>
+    <h3>Opis</h3>
+    <p>{{selectedLocation.description}}</p>
+    <h3>Dane ogólne</h3>
+    <h4>Adres:</h4>
+    <p>{{selectedLocation.adress}}</p>
+    <p><code>Lat: {{selectedLocation.coordLat}}<br>Lon: {{selectedLocation.coordLon}}</code></p>
+    <a [href]="sanitizedUrl">lokalizacja</a>
+</div>
+
 <div id="map"
 leaflet
 [leafletOptions]="options"

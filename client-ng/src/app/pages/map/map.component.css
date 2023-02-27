@@ -4,10 +4,19 @@
 }
 
 .info {
+    border-radius: 1rem;
     background-color: var(--bg);
     position: absolute;
     bottom: 2rem;
     right:2rem;
-    width: 20rem;
+    width: 20em;
     z-index: 999;
+    padding: 1rem;
+}
+.info>* {
+    margin: 0;
+    padding: 0;
+}
+.info>h2, .info>h3, .info>h4 {
+    padding-top: 0.5rem;
 }
