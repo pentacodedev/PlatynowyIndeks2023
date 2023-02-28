@@ -5,13 +5,14 @@ import { LoginData } from '../models/LoginData';
 import { RegisterData } from '../models/RegisterData';
 import { UserModel } from '../models/UserModel';
 import { ApiService } from './api.service';
+import { PresenceService } from './presence.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor(private api: ApiService, private router: Router) {
+  constructor(private api: ApiService, private router: Router, private presence: PresenceService) {
 
   }
 
@@ -22,6 +23,7 @@ export class AuthService {
   logout() {
     this.api.removeUser();
     this.navigateHome();
+    this.presence.stopHubConnection();
   }
 
   login(username: string, password: string) {
@@ -34,9 +36,11 @@ export class AuthService {
     .subscribe({
       next: (user) => {
         this.api.user = user;
+        this.presence.createHubConnection(user);
         this.navigateHome();
       },
-    })
+    }
+    )
   }
   register(username: string, password: string) {
     let registerData: RegisterData = {
@@ -48,6 +52,7 @@ export class AuthService {
     .subscribe({
       next: (user) => {
         this.api.user = user;
+        this.presence.createHubConnection(user);
         this.navigateHome();
       },
     })
