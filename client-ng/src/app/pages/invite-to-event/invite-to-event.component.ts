@@ -12,30 +12,45 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class InviteToEventComponent implements OnInit{
 
+  id: string = "";
   targetEvent?: EventModel;
-
+  
   members$?: Observable<PlayerModel[]>;
 
   constructor(private route: ActivatedRoute, private api: ApiService) {
   }
   ngOnInit(){
     this.route.params.subscribe((params)=>{
-      console.log(params);
-      this.members$ = this.api.getAll<PlayerModel>("users");
-      this.api.getById<EventModel>("events",params["id"]).subscribe(ev => this.targetEvent = ev);
-    })
+      this.api.getById<EventModel>("events",params["id"]).subscribe(
+      (ev) =>{
+        this.id = params['id'];  
+        this.fetchData();
+      })
+  })}
+
+  fetchData(){
+    this.api.getById<EventModel>("events",this.id).subscribe(
+      (ev) =>{
+          this.targetEvent = ev;
+          this.members$ = this.api.getAll<PlayerModel>("users")
+          .pipe(map(m=>m.filter(
+            x=>
+              this.targetEvent?.invitedUsers.every(y => x.id !=y.id) &&
+              this.targetEvent.confirmedParticipants.every(y => x.id != y.id) &&
+              this.targetEvent.adminsOfEvent.every(y => x.id != y.id)
+          )))
+      });
   }
+
+
   inviteUser(m: PlayerModel) {
-    this.api.get(`events/${this.targetEvent?.id}/invite/${m.userName}`).subscribe(()=>{
-      this.members$ = 
-      this.api.getAll<PlayerModel>("users");
+    if(this.targetEvent == undefined) return;
+
+    this.api.get(`events/${this.targetEvent.id}/invite/${m.userName}`).subscribe(()=>{
+      this.fetchData()
     })
   }
-  filterMembers(members: PlayerModel[]) {
-    return members.filter(
-          x=>!this.targetEvent?.invitedUsers.find(y=>y.id == x.id)
-    );
-  }
+
 }
 
 
