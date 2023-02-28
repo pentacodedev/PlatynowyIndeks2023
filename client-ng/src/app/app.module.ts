@@ -38,6 +38,7 @@ import { AddGroupComponent } from './pages/add-group/add-group.component';
 import { GroupCardAdminComponent } from './cards/group-card-admin/group-card-admin.component';
 import { InviteToEventComponent } from './pages/invite-to-event/invite-to-event.component';
 import { AddEventComponent } from './pages/add-event/add-event.component';
+import { AddUserToGroupComponent } from './pages/add-user-to-group/add-user-to-group.component';
 
 
 
@@ -72,6 +73,7 @@ import { AddEventComponent } from './pages/add-event/add-event.component';
     GroupCardAdminComponent,
     InviteToEventComponent,
     AddEventComponent,
+    AddUserToGroupComponent,
   ],
   imports: [
     BrowserAnimationsModule,

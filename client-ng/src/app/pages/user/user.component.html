@@ -1,14 +1,20 @@
 <div class="userInfo" *ngIf="api.user != undefined">
     <h2>Profil użytkownika {{api.user.username}}</h2>
 </div>
-<div>
-    <h4>Informacje:</h4>
+<div class="userCard">
+    <div id="photo">
+        <img src="{{(player$ | async)?.photo}}" alt=" " width="180">
+    </div>
+    <div class="content">
+        <h4>Informacje:</h4>
     <p>Nazwa użytkownika: {{api.user?.username}}</p>
-    <p>Imie:</p>
-    <p>Nazwisko:</p>
-    <p>Adres email:</p>
+    <p>Imie: {{(player$ | async)?.firstName}}</p>
+    <p>Nazwisko: {{(player$ | async)?.surname}}</p>
+    <p>Adres email: {{(player$ | async)?.email}}</p>
     <a routerLink="/logout"><button>Wyloguj się</button></a>
+    </div>
 </div>
+
 <div class="container" *ngIf="api.user != undefined"
 >
     <div class="section">
@@ -20,6 +26,9 @@
                 <button class="accept" (click)="openInviteMenu(i)">Zaproś użytkowników</button>
             </div>
         </div>
+        <div class="buttons">
+            <button class="accept" routerLink="/add-event">Dodaj nowe Wydarzenie</button>
+        </div>
     </div>
     <div class="section">
         <h4>Twoje grupy:</h4>
@@ -30,7 +39,9 @@
                 <button class="decline" (click)="leaveGroup(i)">Opuść grupę</button>
             </div>
         </div>
-        
+        <div class="buttons">
+            <button class="accept" routerLink="/add-group">Dodaj nową grupę</button>
+        </div>
     </div>
     <div class="section">
         <h4>Twoje lokalizacje:</h4>

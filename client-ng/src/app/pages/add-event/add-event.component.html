@@ -5,11 +5,11 @@
     <p>Podaj opis wydarzenia:</p>
     <textarea formControlName="description" id="" cols="30" rows="10"></textarea>
     <p>Wybierz lokalizację:</p>
-    <select [(ngModel)]="selectedLocation">
+    <select formControlName="selectedLocation">
         <option *ngFor="let it of locations$ | async"  [ngValue]="it">{{it.name}}</option>
     </select>
     
-    <h2>Prywatne wydarzenie: <input type="checkbox" formControlName="isPrivateEvent"></h2>
+    <h2>Prywatne wydarzenie: <input type="checkbox" formControlName="isPrivate"></h2>
     
     <div class="buttons">
         <button type="submit" class="accept" [disabled]="eventForm.invalid">Utwórz</button>
