@@ -4,19 +4,11 @@
     <nav>
         <a (click)="changeCard('description')">Opis</a>
         <a (click)="changeCard('members')">Członkowie</a>
-        <a (click)="changeCard('admins')">Admini</a>
-        <a (click)="changeCard('events')">Wydarzenia</a>
     </nav>
     <div *ngIf="currentCard == 'description'">
         <h3>{{group.description}}</h3>
     </div>
     <div *ngIf="currentCard == 'members'">
-    </div>
-    <div *ngIf="currentCard == 'admins'">
-        
-    </div>
-    <div *ngIf="currentCard == 'events'">
-
     </div>
     <div class="buttons">
         <button class="accept" [routerLink]='["/group-profile", group.name]'>Zobacz profil grupy</button>

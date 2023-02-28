@@ -37,6 +37,8 @@ import { EventsComponent } from './pages/admin/events/events.component';
 import { AddGroupComponent } from './pages/add-group/add-group.component';
 import { GroupCardAdminComponent } from './cards/group-card-admin/group-card-admin.component';
 import { InviteToEventComponent } from './pages/invite-to-event/invite-to-event.component';
+import { AddEventComponent } from './pages/add-event/add-event.component';
+
 
 
 @NgModule({
@@ -69,6 +71,7 @@ import { InviteToEventComponent } from './pages/invite-to-event/invite-to-event.
     EventsComponent,
     GroupCardAdminComponent,
     InviteToEventComponent,
+    AddEventComponent,
   ],
   imports: [
     BrowserAnimationsModule,

@@ -1,0 +1,14 @@
+<h1>Utwórz nowe wydarzenie:</h1>
+<form [formGroup]="groupForm" (ngSubmit)="onGroupFormSubmit()">
+    <p>Podaj nazwę wydarzenia:</p>
+    <input type="text" formControlName="name">
+    <p>Podaj opis wydarzenia:</p>
+    <textarea formControlName="description" id="" cols="30" rows="10"></textarea>
+    <div class="buttons">
+        <button class="accept" routerLink="/add-location">Dodaj nową lokalizacje</button>
+        <button type="submit" class="accept" [disabled]="groupForm.invalid">Utwórz</button>
+    </div>
+    <ol>
+        <li *ngFor="let item in locations$ | async">{{item.name}}</li>
+    </ol>
+</form>
