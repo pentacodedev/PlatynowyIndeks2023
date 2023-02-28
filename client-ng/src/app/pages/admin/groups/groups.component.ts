@@ -13,6 +13,7 @@ import { ApiService } from 'src/app/services/api.service';
 
 export class AdminGroupsComponent implements OnInit {
   groups$!: Observable<GroupModel[]>;
+  overlayGroup?: GroupModel;
 
   constructor(private admin: AdminService) {}
 
@@ -21,4 +22,7 @@ export class AdminGroupsComponent implements OnInit {
     this.groups$ = this.admin.getAllGroups();
   }
 
+  showInfo($event: GroupModel){
+    this.overlayGroup = $event
+  }
 }

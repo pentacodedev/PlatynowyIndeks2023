@@ -4,8 +4,12 @@
     margin-top: 1rem;
     gap: 1rem;
 }
-app-group-card {
+app-group-card-admin {
     border: 0.2rem solid var(--fill);
     padding: 1rem;
     border-radius: 0.5rem;
+    transition: 0.3s;
+}
+app-group-card-admin:hover{
+    border: 0.2rem solid var(--secondary)
 }

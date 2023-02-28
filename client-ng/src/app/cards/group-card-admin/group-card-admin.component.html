@@ -1,0 +1,10 @@
+<div class="container">
+    <h3>{{group.name}}</h3>
+    <h4>Opis: {{group.description}}</h4>
+</div>
+<div class="icons-container">
+    <div class="icons">
+        <ng-icon *ngIf="group.hasSignedObject" name="matHome" color="var(--primary)" size="30"></ng-icon>
+        <ng-icon name="matAdminPanelSettings" color="var(--secondary)" size="30"></ng-icon>
+    </div>
+</div>
