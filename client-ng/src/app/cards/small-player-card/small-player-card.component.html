@@ -1,1 +1,8 @@
-<p>{{player.userName}}</p>
+<div class="userCard">
+    <div id="photo">
+        <img src="{{user.photo}}" alt=" " width="50">
+    </div>
+    <div class="content">
+        <h3>Nazwa użytkownika: {{user.userName | titlecase}}</h3>
+    </div>
+</div>

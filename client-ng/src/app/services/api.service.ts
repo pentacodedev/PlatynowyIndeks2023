@@ -5,16 +5,18 @@ import { catchError, EMPTY, Observable } from 'rxjs';
 import { GroupModel } from '../models/GroupModel';
 import { LocationModel } from '../models/LocationModel';
 import { UserModel } from '../models/UserModel';
+import { PresenceService } from './presence.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
 
-  constructor(private http: HttpClient, private toastr: ToastrService) {
+  constructor(private http: HttpClient, private toastr: ToastrService, private presence: PresenceService) {
     let userJson = localStorage.getItem("user");
     if (userJson != null) {
       this._user = JSON.parse(userJson);
+      this.presence.createHubConnection(this._user!);
     }
   }
 

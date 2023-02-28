@@ -57,6 +57,10 @@ h1 {
     color: var(--fg);
     margin: 1rem;
 }
+.online{
+    width: 100%;
+    text-align: right;
+}
 
 @media (orientation: landscape) {
     body {

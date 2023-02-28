@@ -1,0 +1,23 @@
+.userCard{
+    border: 0.2em solid var(--fill);
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+    transition: border-color 0.3s;
+    display: flex;
+    margin-top: 2rem;
+}
+.userCard:hover{
+    border: 0.2em solid var(--secondary);
+}
+#photo{
+    display: grid;
+    place-items: center;
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    border: 0.2em dashed var(--fill);
+    border-radius: 0.3rem;
+}
+.content{
+    margin-left: 0.8rem;
+}

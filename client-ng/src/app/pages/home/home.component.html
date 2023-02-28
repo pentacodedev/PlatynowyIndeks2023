@@ -1,7 +1,8 @@
 
-<p>Online users:{{(onlineUsers$ | async)?.length}}</p>
+
 
 <h1>Team<span class="here">Here</span></h1>
+<h3 class="online">Użytkownicy <span class="here">Online: {{(onlineUsers$ | async)?.length}}</span></h3>
 <div *ngIf="api.user == undefined">
     <p>
         <a routerLink="/login">Zaloguj się</a>

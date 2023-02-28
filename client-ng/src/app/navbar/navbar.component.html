@@ -3,7 +3,7 @@
     <ng-container *ngIf="isLogged"> 
         <a routerLinkActive="active" routerLink="/map">Mapa</a>
         <a routerLinkActive="active" routerLink="/user">Twój Profil</a>
-        <a routerLinkActive="active" routerLink="/admin">Admin</a>
+        <a routerLinkActive="active" *ngIf="api.user?.isAdmin" routerLink="/admin">Admin</a>
     </ng-container> 
     <ng-container *ngIf="!isLogged"> 
         <a routerLinkActive="active" routerLink="/login">Login</a>

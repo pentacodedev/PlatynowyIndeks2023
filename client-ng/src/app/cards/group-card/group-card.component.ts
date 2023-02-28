@@ -17,6 +17,6 @@ export class GroupCardComponent {
     this.showInfoClicked.emit(this.group)
   }
   onEditClick(){
-
+    alert("under construction")
   }
 }

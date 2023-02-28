@@ -11,7 +11,7 @@
     </div>
     <div class="section">
         <h3>Użytkownicy:</h3>
-        <app-members-view *ngFor="let user of users$ | async" [user]="user"></app-members-view>
+        <app-small-player-card *ngFor="let user of users$ | async" [user]="user"></app-small-player-card>
     </div>
     <div class="section" *ngIf="(locations$ | async )?.length != 0">
         <h3>Lokalizacje:</h3>

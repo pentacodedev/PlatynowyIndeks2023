@@ -7,5 +7,5 @@ import { PlayerModel } from 'src/app/models/PlayerModel';
   styleUrls: ['./small-player-card.component.css']
 })
 export class SmallPlayerCardComponent {
-  @Input() player!: PlayerModel;
+  @Input() user!: PlayerModel;
 }

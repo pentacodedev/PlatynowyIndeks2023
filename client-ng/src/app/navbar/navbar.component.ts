@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ApiService } from '../services/api.service';
 
 @Component({
   selector: 'app-navbar',
@@ -11,7 +12,7 @@ export class NavbarComponent implements OnInit {
   @Input()
   isLogged?: boolean;
 
-  constructor() { 
+  constructor(public api: ApiService) { 
 
   }
 
