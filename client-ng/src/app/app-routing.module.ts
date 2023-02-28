@@ -15,6 +15,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { GroupViewComponent } from './pages/group-view/group-view.component';
 import { EventsComponent } from './pages/admin/events/events.component';
 import { AddGroupComponent } from './pages/add-group/add-group.component';
+import { AddEventComponent } from './pages/add-event/add-event.component';
 
 const routes: Routes = [
   {path: '', pathMatch:'full', redirectTo: "home"},
@@ -35,6 +36,7 @@ const routes: Routes = [
       },
       {path: 'add-location', component: AddLocationComponent},
       {path: 'add-group', component: AddGroupComponent},
+      {path: 'add-event', component: AddEventComponent},
       {path: 'group-profile/:name', component: GroupViewComponent},
       {path: 'map', component: MapComponent},
       {path: 'logout', component: LogoutComponent},
