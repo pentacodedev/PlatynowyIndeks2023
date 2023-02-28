@@ -9,7 +9,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { HomeComponent } from './pages/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { AdminComponent } from './pages/admin/admin.component';
 import { AdminUsersComponent } from './pages/admin/users/users.component';
@@ -77,6 +77,7 @@ import { AddEventComponent } from './pages/add-event/add-event.component';
     BrowserAnimationsModule,
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     LeafletModule,
     ReactiveFormsModule,
     HttpClientModule,

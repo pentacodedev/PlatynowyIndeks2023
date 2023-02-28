@@ -6,8 +6,10 @@ import { LocationModel } from 'src/app/models/LocationModel';
 import { ApiService } from 'src/app/services/api.service';
 
 interface RegisterEventDto{
-  name: string;
-  description: string;
+  name: string,
+  description: string,
+  location: LocationModel,
+  isPrivate: boolean,
 }
 
 @Component({
@@ -16,20 +18,24 @@ interface RegisterEventDto{
   styleUrls: ['./add-event.component.css']
 })
 export class AddEventComponent {
-  locations$ = this.api.getAll<LocationModel[]>("locations/accepted-locations");
-  groupForm = this.fb.group({
+  locations$ = this.api.getAll<LocationModel>("locations/accepted-locations");
+  eventForm = this.fb.group({
     name: ['', [Validators.required]],
     description: ['', [Validators.required]],
+    isPrivate: [false, [Validators.required]],
   })
 
+  selectedLocation?: LocationModel;
 
-  onGroupFormSubmit() {
-    let data = this.groupForm.value;
-    this.api.post<GroupModel,RegisterEventDto>("groups/register-group",{
+  onLocationFormSubmit() {
+    let data = this.eventForm.value;
+    this.api.post<any,RegisterEventDto>("events",{
       name: data.name!,
       description: data.description!,
-    }).subscribe((group) => {
-      this.router.navigateByUrl('/group-profile/'+group.name)
+      location: this.selectedLocation!,
+      isPrivate: data.isPrivate!,
+    }).subscribe((event) => {
+      this.router.navigateByUrl('/home')
     });   
   }
   constructor(private fb: FormBuilder, private api: ApiService, private router: Router) {}
