@@ -32,6 +32,7 @@ export class UserComponent {
 
   groups$ = this.api.getAll<GroupModel>("groups/your-groups");
   events$ = this.api.getAll<EventModel>("events/owned");
+  player$ = this.api.getByName<PlayerModel>("users" , this.api.user!.username);
 
   objectLocation$ = this.api.getAll<LocationModel>("locations/get-your-locations");
 constructor(protected api: ApiService, private router: Router){}
