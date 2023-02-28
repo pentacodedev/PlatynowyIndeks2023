@@ -73,6 +73,15 @@ h1 {
     }
 }
 
+@keyframes slide-right {
+    from {
+        transform:  translate(0%);
+    }
+    to {
+        transform:  translate(100%);
+    }
+}
+
 .overlay {
     animation-name: slide-left;
     animation-duration: 1s;
