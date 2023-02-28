@@ -67,7 +67,7 @@ export class ApiService {
       headers: this.getHeaders(),
     }).pipe(catchError(this.onErr))
   }
-  public delete<TBody>(relPath: string) {
+  public delete(relPath: string) {
     return this.http.delete(this.apiUrl + relPath, {headers: this.getHeaders()})
     .pipe(catchError(this.onErr))
   }
@@ -75,6 +75,17 @@ export class ApiService {
 
   public getByName<T>(relPath: string, name: string): Observable<T> {
     return this.http.get<T>(this.apiUrl + relPath + "/" + name, {
+      headers: this.getHeaders(),
+    }).pipe(catchError(this.onErr))
+  }
+  public get<T>(relPath: string): Observable<T> {
+    return this.http.get<T>(this.apiUrl + relPath, {
+      headers: this.getHeaders(),
+    }).pipe(catchError(this.onErr))
+  }
+
+  public getEmpty(relPath: string) {
+    return this.http.get(this.apiUrl + relPath, {
       headers: this.getHeaders(),
     }).pipe(catchError(this.onErr))
   }

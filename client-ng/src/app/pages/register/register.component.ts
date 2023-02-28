@@ -21,11 +21,20 @@ export class RegisterComponent implements OnInit {
       console.error("names dont match");
       return;
     }
-    this.auth.register(data.username??"", data.password??"");
+    this.auth.register({
+      firstName: data.firstName ?? "",
+      surName: data.surName ?? "",
+      password: data.password ?? "",
+      email: data.email ?? "",
+      username: data.username ?? "",
+    });
   }
 
   registerForm = this.fb.group({
     username: ['', [Validators.required]],
+    firstName: ['', [Validators.required]],
+    surName: ['', [Validators.required]],
+    email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required]],
     repeatPassword: ['', [Validators.required]],
   })

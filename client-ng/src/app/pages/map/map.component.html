@@ -23,7 +23,10 @@
         <p>
             Uczestników: {{ev.confirmedParticipants.length}}
         </p>
-        <button (click)="joinEvent(ev)">Dołącz</button>
+        <button *ngIf="inEvent(ev); else join" (click)="leaveEvent(ev)">Opuść</button>
+        <ng-template #join>
+            <button (click)="joinEvent(ev)">Dołącz</button>
+        </ng-template>
     </div>
 </div>
 
