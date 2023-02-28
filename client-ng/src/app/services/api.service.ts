@@ -69,6 +69,13 @@ export class ApiService {
       headers: this.getHeaders(),
     }).pipe(catchError(this.onErr))
   }
+  
+  public put<TValue, TBody>(relPath: string, data: TBody) {
+    return this.http.put<TValue>(this.apiUrl + relPath, data, {
+      headers: this.getHeaders(),
+    }).pipe(catchError(this.onErr))
+  }
+
   public delete(relPath: string) {
     return this.http.delete(this.apiUrl + relPath, {headers: this.getHeaders()})
     .pipe(catchError(this.onErr))

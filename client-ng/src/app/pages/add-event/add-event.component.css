@@ -1,12 +1,13 @@
 form{
-    margin: 1rem;
-    
+    margin: 1rem;    
 }
 form input{
     width: 100%;
     padding: 0.5rem;
     border-radius: 1rem;
     background-color: var(--fill);
+    color: var(--fg);
+    font-family: 'Montserrat';
     border: none;
     transition: 0.3s;
     border: 0.2rem solid var(--fill);
@@ -40,4 +41,18 @@ form button{
     border: 0.2em solid var(--primary);
     color: var(--primary);
     background-color: var(--primary-t);
+}
+
+select {
+    background-color: var(--fill);
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    color: var(--fg);
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    width: 100%;
+}
+form input[type="checkbox"] {
+    display: inline;
+    width: fit-content;
 }
