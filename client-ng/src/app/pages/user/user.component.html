@@ -17,7 +17,7 @@
             <p>Nazwa: {{i.name}}</p>
             <p>Opis: {{i.description}}</p>
             <div class="buttons">
-                <button class="decline">Opuść grupę</button>
+                <button class="decline" (click)="leaveGroup(i)">Opuść grupę</button>
             </div>
         </div>
         
@@ -27,6 +27,9 @@
         <div class="groupCard" *ngFor="let i of objectLocation$ | async">
             <p>{{i.name}}</p>
             <p>{{i.description}}</p>
+            <div class="buttons">
+                <button class="decline" (click)="deleteLocation(i)">Usuń</button> 
+            </div>
         </div>
         <div class="buttons">
             <button class="accept" routerLink="/add-location">Dodaj nową lokalizacje</button>

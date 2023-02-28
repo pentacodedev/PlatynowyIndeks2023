@@ -12,9 +12,21 @@ import { LocationModel } from 'src/app/models/LocationModel';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent {
+  leaveGroup(g: GroupModel) {
+  }
+
+  refreshLocations() {
+    this.objectLocation$ = this.api.getAll<LocationModel>("locations/get-your-locations");
+  }
+  deleteLocation(loc: LocationModel) {
+    this.api.delete(`locations/${loc.id}`).subscribe();
+    this.refreshLocations();
+  }
   @Input() Player!: PlayerModel;
+
   groups$ = this.api.getAll<GroupModel>("groups/your-groups");
-  objectLocation$ = this.api.getAll<LocationModel>("");
+
+  objectLocation$ = this.api.getAll<LocationModel>("locations/get-your-locations");
 constructor(protected api: ApiService){}
 
 }
