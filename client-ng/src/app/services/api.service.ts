@@ -67,7 +67,7 @@ export class ApiService {
       headers: this.getHeaders(),
     }).pipe(catchError(this.onErr))
   }
-  public delete<TBody>(relPath: string) {
+  public delete(relPath: string) {
     return this.http.delete(this.apiUrl + relPath, {headers: this.getHeaders()})
     .pipe(catchError(this.onErr))
   }

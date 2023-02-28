@@ -12,19 +12,21 @@
 <div class="events" *ngIf="selectedEvents$ | async">
     <h2>Wydarzenia:</h2>
     <div class="event" *ngFor="let ev of selectedEvents$ | async">
-        <h3>{{ev.event.name}}</h3>
+        <h3>{{ev.name}}</h3>
         <p>
-            Utworzone przez: {{ev.event.eventHost.userName}}
+            Utworzone przez: {{ev.eventHost.userName}}
         </p>
         <p>
-            Od: {{ev.event.dateOfStart | date:'short'}} <br>
-            Do: {{ev.event.dateOfEnd | date:'short'}}
+            Od: {{ev.dateOfStart | date:'short'}} <br>
+            Do: {{ev.dateOfEnd | date:'short'}}
         </p>
         <p>
-            Uczestników: {{ev.event.confirmedParticipants.length}}
+            Uczestników: {{ev.confirmedParticipants.length}}
         </p>
-        <button *ngIf="ev.isJoined"  (click)="joinEvent(ev.event)">Dołącz</button>
-        <button *ngIf="!ev.isJoined" (click)="leaveEvent(ev.event)">Opuść</button>
+        <button *ngIf="inEvent(ev); else join" (click)="leaveEvent(ev)">Opuść</button>
+        <ng-template #join>
+            <button (click)="joinEvent(ev)">Dołącz</button>
+        </ng-template>
     </div>
 </div>
 

@@ -42,12 +42,7 @@ export class AuthService {
     }
     )
   }
-  register(username: string, password: string) {
-    let registerData: RegisterData = {
-        username: username,
-        password: password,
-    }
-
+  register(registerData: RegisterData) {
     this.api.post<UserModel,RegisterData>("account/register", registerData)
     .subscribe({
       next: (user) => {

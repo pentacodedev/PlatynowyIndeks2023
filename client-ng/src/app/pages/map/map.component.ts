@@ -16,9 +16,12 @@ interface EventJoinData {
   styleUrls: ['./map.component.css']
 })
 export class MapComponent implements OnInit {
+  inEvent(ev: EventModel): any {
+    return this.yourEvents.find(x=>x.id == ev.id) != undefined;
+  }
 
   selectedLocation?: LocationModel;
-  selectedEvents$?: Observable<EventJoinData[]>;
+  selectedEvents$?: Observable<EventModel[]>;
   sanitizedUrl?: SafeUrl;
 
   constructor(private api: ApiService, private zone: NgZone,private changeDetector: ChangeDetectorRef, private sanitizer: DomSanitizer) { }
@@ -62,24 +65,29 @@ export class MapComponent implements OnInit {
   onLocationClick(loc: LocationModel) {
     this.zone.run(() => {
       this.selectedLocation = loc;
-      this.selectedEvents$ = this.api.getAll<EventModel>(`locations/event-for-location/${loc.id}`).pipe(map(x=>x.map<EventJoinData>(x=>{return {event: x, isJoined: !this.yourEvents.includes(x)}})));
       this.sanitizedUrl = this.sanitizer.bypassSecurityTrustUrl("geo:" + loc.coordLat + "," + loc.coordLon);
       this.changeDetector.detectChanges();
-    })
-  }
+
+      this.selectedEvents$ = 
+      this.api.getAll<EventModel>(`locations/event-for-location/${loc.id}`);
+      })
+    }
+
 
   joinEvent(ev: EventModel) {
-    this.api.getEmpty(`events/join-event/${ev.id}`).subscribe((data)=>this.fetchEvents())
+    this.api.getEmpty(`events/join-event/${ev.id}`).subscribe(()=>this.fetchEvents())
   }
   leaveEvent(ev: EventModel) {
-    this.api.getEmpty(`events/quit-event/${ev.id}`).subscribe((data)=>this.fetchEvents())
+    this.api.getEmpty(`events/quit-event/${ev.id}`).subscribe(()=>this.fetchEvents())
   }
 
   fetchEvents() {
     this.api.getAll<EventModel>("events/your-events").subscribe(
       (events) =>{
         this.yourEvents = events
-        this.selectedEvents$ = this.api.getAll<EventModel>(`locations/event-for-location/${this.selectedLocation?.id}`).pipe(map(x => x.map<EventJoinData>(x => { return { event: x, isJoined: !this.yourEvents.includes(x) } })));
+        this.selectedEvents$ = 
+          this.api.getAll<EventModel>
+          (`locations/event-for-location/${this.selectedLocation?.id}`);
       }
     )
   }
