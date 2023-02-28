@@ -78,6 +78,11 @@ export class ApiService {
       headers: this.getHeaders(),
     }).pipe(catchError(this.onErr))
   }
+  public getById<T>(relPath: string, id: string): Observable<T> {
+    return this.http.get<T>(this.apiUrl + relPath + "/" + id, {
+      headers: this.getHeaders(),
+    }).pipe(catchError(this.onErr))
+  }
   public get<T>(relPath: string): Observable<T> {
     return this.http.get<T>(this.apiUrl + relPath, {
       headers: this.getHeaders(),

@@ -3,7 +3,7 @@
     <h4>Opis wydarzenia:</h4>
     <h4>{{event.description}}</h4>
     <div class="buttons">
-        <button class="accept">Dołącz</button>
-        <button class="decline">Odrzuć</button>
+        <button (click)="acceptEvent()" class="accept">Dołącz</button>
+        <button (click)="denyEvent()" class="decline">Odrzuć</button>
     </div>
 </div>

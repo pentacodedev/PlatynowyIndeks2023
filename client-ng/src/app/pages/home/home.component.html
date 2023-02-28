@@ -20,14 +20,14 @@
         <h2>Zbliżające się eventy:</h2>
         <hr>
         <div class="optionCard" *ngFor="let event of events$ | async">
-            <app-event-card [event]="event"></app-event-card>
+            <app-event-card [event]="event" (leave)="refresh()"></app-event-card>
         </div>
     </div>
     <div class="userGroups">
         <h2>Do tych eventów zostałeś zaproszony:</h2>
         <hr>
         <div class="optionCard" *ngFor="let event of invites$ | async">
-            <app-event-to-accept-card [event]="event"></app-event-to-accept-card>
+            <app-event-to-accept-card [event]="event" (chosen)="refresh()"></app-event-to-accept-card>
         </div>
     </div>
 </div>

@@ -15,6 +15,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { GroupViewComponent } from './pages/group-view/group-view.component';
 import { EventsComponent } from './pages/admin/events/events.component';
 import { AddGroupComponent } from './pages/add-group/add-group.component';
+import { InviteToEventComponent } from './pages/invite-to-event/invite-to-event.component';
 
 const routes: Routes = [
   {path: '', pathMatch:'full', redirectTo: "home"},
@@ -34,6 +35,7 @@ const routes: Routes = [
         ],
       },
       {path: 'add-location', component: AddLocationComponent},
+      {path: 'invite-to-event/:id', component: InviteToEventComponent},
       {path: 'add-group', component: AddGroupComponent},
       {path: 'group-profile/:name', component: GroupViewComponent},
       {path: 'map', component: MapComponent},

@@ -34,4 +34,11 @@ export class HomeComponent {
   backArrow(){
     this.overlayGroup = undefined;
   }
+
+
+  refresh(){
+    this.invites$ = this.api.getAll<EventModel>("events/invites");
+    this.events$ = this.api.getAll<EventModel>("events/your-events");
+  }
 }
+

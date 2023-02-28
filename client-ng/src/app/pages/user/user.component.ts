@@ -5,6 +5,8 @@ import { AuthService } from 'src/app/services/auth.service';
 import { PlayerModel } from 'src/app/models/PlayerModel';
 import { GroupModel } from 'src/app/models/GroupModel';
 import { LocationModel } from 'src/app/models/LocationModel';
+import { EventModel } from 'src/app/models/EventModel';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user',
@@ -22,11 +24,16 @@ export class UserComponent {
     this.api.delete(`locations/${loc.id}`).subscribe();
     this.refreshLocations();
   }
+  openInviteMenu(ev: EventModel){ 
+    this.router.navigate(["/invite-to-event", ev.id])
+  }
+
   @Input() Player!: PlayerModel;
 
   groups$ = this.api.getAll<GroupModel>("groups/your-groups");
+  events$ = this.api.getAll<EventModel>("events/owned");
 
   objectLocation$ = this.api.getAll<LocationModel>("locations/get-your-locations");
-constructor(protected api: ApiService){}
+constructor(protected api: ApiService, private router: Router){}
 
 }
