@@ -1,5 +1,6 @@
 .grid {
     grid-template-columns: repeat(auto-fill,minmax(20em,1fr));
+    grid-auto-rows: 1fr;
     display: grid;
     gap: 0.5rem;
 }
@@ -7,7 +8,10 @@
 .card {
     padding: 1rem;
     border: 0.2rem solid var(--fill);
+    display:grid;
+    grid-template-rows: 1fr 1fr auto;
 }
+
 .card button {
     width: 100%;
 }
