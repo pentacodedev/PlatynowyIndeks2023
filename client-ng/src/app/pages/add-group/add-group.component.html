@@ -1,0 +1,8 @@
+<h1>Utwórz nową grupę:</h1>
+<form [formGroup]="groupForm" (ngSubmit)="onGroupFormSubmit()">
+    <p>Podaj nazwę grupy:</p>
+    <input type="text" formControlName="name">
+    <p>Podaj opis grupy:</p>
+    <textarea formControlName="description" id="" cols="30" rows="10"></textarea>
+    <button type="submit" [disabled]="groupForm.invalid">Utwórz</button>
+</form>

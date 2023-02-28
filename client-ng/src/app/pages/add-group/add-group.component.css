@@ -1,0 +1,29 @@
+form{
+    margin: 1rem;
+    
+}
+form input{
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    background-color: var(--fill);
+    border: none;
+    transition: 0.3s;
+    border: 0.2rem solid var(--fill);
+}
+form textarea{
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    border: 0.2rem solid var(--fill);
+    transition: 0.3s;
+}
+form input:hover{
+    border: 0.2rem solid var(--primary);
+}
+form textarea:hover{
+    border: 0.2rem solid var(--primary);
+}
+form button{
+    margin-top: 0.5rem;
+}

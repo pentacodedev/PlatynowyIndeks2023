@@ -1,0 +1,13 @@
+app-event-card{
+    border: 0.2em solid var(--fill);
+    margin: 0.5rem;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    transition: 0.3s;
+}
+app-event-card:hover{
+    border: 0.2em solid var(--secondary);
+}
+app-event-card p:hover{
+    color: var(--primary-l)
+}

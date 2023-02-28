@@ -34,6 +34,7 @@ import { GroupViewComponent } from './pages/group-view/group-view.component';
 import { MembersViewComponent } from './pages/group-view/members-view/members-view.component';
 import { LocationViewComponent } from './pages/group-view/location-view/location-view.component';
 import { EventsComponent } from './pages/admin/events/events.component';
+import { AddGroupComponent } from './pages/add-group/add-group.component';
 
 
 @NgModule({
@@ -41,6 +42,7 @@ import { EventsComponent } from './pages/admin/events/events.component';
     AppComponent,
     NavbarComponent,
     MapComponent,
+    AddGroupComponent,
     LoginComponent,
     RegisterComponent,
     HomeComponent,

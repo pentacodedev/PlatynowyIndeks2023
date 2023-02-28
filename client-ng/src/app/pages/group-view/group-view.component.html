@@ -10,12 +10,16 @@
         <h4>Opis grupy: {{group.description}}</h4>
     </div>
     <div class="section">
-        <h3>Użytkownicy</h3>
+        <h3>Użytkownicy:</h3>
         <app-members-view *ngFor="let user of users$ | async" [user]="user"></app-members-view>
     </div>
-    <div class="section">
-        <h3>Lokalizacje</h3>
+    <div class="section" *ngIf="(locations$ | async )?.length != 0">
+        <h3>Lokalizacje:</h3>
         <app-location-view *ngFor="let location of locations$ | async" [location]="location"></app-location-view>
+    </div>
+    <div class="section" *ngIf="(locations$ | async )?.length == 0">
+        <h3>Lokalizacje:</h3>
+        <h3>Grupa jeszcze nie ma lokalizacji :(</h3>
     </div>
 </div>
 </ng-container>
