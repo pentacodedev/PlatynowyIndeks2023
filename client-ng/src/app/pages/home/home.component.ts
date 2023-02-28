@@ -3,6 +3,8 @@ import { GroupModel } from 'src/app/models/GroupModel';
 import { EventModel } from 'src/app/models/EventModel';
 import { ApiService } from 'src/app/services/api.service';
 import { AuthService } from 'src/app/services/auth.service';
+import { PresenceService } from 'src/app/services/presence.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -16,7 +18,10 @@ export class HomeComponent {
   events$ = this.api.getAll<EventModel>("events/your-events");
   invites$ = this.api.getAll<EventModel>("events/invites");
 
-  constructor(protected api: ApiService, private auth: AuthService) { }
+  constructor(protected api: ApiService, private auth: AuthService, private presence: PresenceService) { }
+
+  onlineUsers$: Observable<string[]> = this.presence.onlineUsers$;
+
 
   logout() {
     this.auth.logout();

@@ -15,6 +15,20 @@
 
     --error: hsl(0, 100%, 65%);
     --error-t: hsla(0, 100%, 65%, 10%);
+/*
+    --fg: #e9eaec;
+    --bg: #30333b;
+    --fill: #535865;
+
+    --primary: #1affa7;
+    --primary-t: #1affa71a;
+    --primary-l: #b3ffe2;
+
+    --secondary: #9180ff;
+    --secondary-l: #bdb3ff;
+    --error: #ff4d4d;
+    --error-t: #ff4d4d1a;
+*/
 }
 
 @font-face {

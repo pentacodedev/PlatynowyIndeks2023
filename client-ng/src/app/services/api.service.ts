@@ -78,6 +78,17 @@ export class ApiService {
       headers: this.getHeaders(),
     }).pipe(catchError(this.onErr))
   }
+  public get<T>(relPath: string): Observable<T> {
+    return this.http.get<T>(this.apiUrl + relPath, {
+      headers: this.getHeaders(),
+    }).pipe(catchError(this.onErr))
+  }
+
+  public getEmpty(relPath: string) {
+    return this.http.get(this.apiUrl + relPath, {
+      headers: this.getHeaders(),
+    }).pipe(catchError(this.onErr))
+  }
 
   public getAll<T>(relPath: string) : Observable<T[]> {
     return this.http.get<T[]>(this.apiUrl + relPath, {

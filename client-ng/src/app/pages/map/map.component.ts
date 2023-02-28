@@ -1,11 +1,15 @@
 import { ChangeDetectorRef, Component, Input, NgZone, OnInit } from '@angular/core';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { icon, latLng, MapOptions, Marker, marker, tileLayer } from 'leaflet';
-import { map, Observable } from 'rxjs';
+import { filter, map, Observable } from 'rxjs';
 import { EventModel } from 'src/app/models/EventModel';
 import { LocationModel } from 'src/app/models/LocationModel';
 import { ApiService } from 'src/app/services/api.service';
 
+interface EventJoinData {
+  event: EventModel;
+  isJoined: boolean;
+}
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
@@ -14,12 +18,15 @@ import { ApiService } from 'src/app/services/api.service';
 export class MapComponent implements OnInit {
 
   selectedLocation?: LocationModel;
-  selectedEvents$?: Observable<EventModel[]>;
+  selectedEvents$?: Observable<EventJoinData[]>;
   sanitizedUrl?: SafeUrl;
 
   constructor(private api: ApiService, private zone: NgZone,private changeDetector: ChangeDetectorRef, private sanitizer: DomSanitizer) { }
 
+
   markers$!: Observable<Marker[]>;
+
+  yourEvents: EventModel[] = [];
 
 
   options:MapOptions = {
@@ -34,7 +41,12 @@ export class MapComponent implements OnInit {
   };
 
   ngOnInit(): void {
-    this.markers$ = this.api.getAllLocations().pipe(map(x=>x.map(this.markerToLoc.bind(this))));
+    this.markers$ = this.api.getAllLocations()
+    .pipe(map(x=>x.map(this.markerToLoc.bind(this))));
+
+    this.api.getAll<EventModel>("events/your-events").subscribe(
+      (events) => this.yourEvents = events
+    )
   }
 
 
@@ -46,16 +58,30 @@ export class MapComponent implements OnInit {
     return mark;
   }
 
+
   onLocationClick(loc: LocationModel) {
     this.zone.run(() => {
       this.selectedLocation = loc;
-      this.selectedEvents$ = this.api.getAll<EventModel>(`locations/event-for-location/${loc.id}`);
+      this.selectedEvents$ = this.api.getAll<EventModel>(`locations/event-for-location/${loc.id}`).pipe(map(x=>x.map<EventJoinData>(x=>{return {event: x, isJoined: !this.yourEvents.includes(x)}})));
       this.sanitizedUrl = this.sanitizer.bypassSecurityTrustUrl("geo:" + loc.coordLat + "," + loc.coordLon);
       this.changeDetector.detectChanges();
     })
   }
 
   joinEvent(ev: EventModel) {
+    this.api.getEmpty(`events/join-event/${ev.id}`).subscribe((data)=>this.fetchEvents())
+  }
+  leaveEvent(ev: EventModel) {
+    this.api.getEmpty(`events/quit-event/${ev.id}`).subscribe((data)=>this.fetchEvents())
   }
 
+  fetchEvents() {
+    this.api.getAll<EventModel>("events/your-events").subscribe(
+      (events) =>{
+        this.yourEvents = events
+        this.selectedEvents$ = this.api.getAll<EventModel>(`locations/event-for-location/${this.selectedLocation?.id}`).pipe(map(x => x.map<EventJoinData>(x => { return { event: x, isJoined: !this.yourEvents.includes(x) } })));
+      }
+    )
+  }
 }
+
