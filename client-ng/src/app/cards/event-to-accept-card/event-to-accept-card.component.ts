@@ -22,7 +22,7 @@ export class EventToAcceptCardComponent {
     this.api.get(`events/join-event/${this.event.id}`).subscribe(()=>this.chosen.emit(true));
   }
   denyEvent() {
-    this.api.get(`events/quit-event/${this.event.id}`).subscribe(()=>this.chosen.emit(false));
+    this.api.get(`events/decline-event/${this.event.id}`).subscribe(()=>this.chosen.emit(false));
 
   }
   
