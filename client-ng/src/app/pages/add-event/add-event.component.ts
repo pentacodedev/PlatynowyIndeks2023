@@ -22,17 +22,17 @@ export class AddEventComponent {
   eventForm = this.fb.group({
     name: ['', [Validators.required]],
     description: ['', [Validators.required]],
+    selectedLocation: [undefined, [Validators.required]],  
     isPrivate: [false, [Validators.required]],
   })
 
-  selectedLocation?: LocationModel;
-
+  
   onLocationFormSubmit() {
     let data = this.eventForm.value;
     this.api.post<any,RegisterEventDto>("events",{
       name: data.name!,
       description: data.description!,
-      location: this.selectedLocation!,
+      location: data.selectedLocation!,
       isPrivate: data.isPrivate!,
     }).subscribe((event) => {
       this.router.navigateByUrl('/home')

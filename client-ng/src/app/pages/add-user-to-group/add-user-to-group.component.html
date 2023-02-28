@@ -1,0 +1,8 @@
+<h1>Zaproś osoby do grupy: {{group?.name}} </h1>
+<div class="grid">
+    <div class="card" *ngFor="let m of users$ | async">
+        <h2>{{m.firstName}} {{m.surname}}</h2>
+        <h3>@{{m.userName}}</h3>
+        <button (click)="inviteUser(m)">Zaproś</button>
+    </div>
+</div>

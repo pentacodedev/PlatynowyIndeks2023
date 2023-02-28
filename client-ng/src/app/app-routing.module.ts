@@ -17,6 +17,7 @@ import { EventsComponent } from './pages/admin/events/events.component';
 import { AddGroupComponent } from './pages/add-group/add-group.component';
 import { InviteToEventComponent } from './pages/invite-to-event/invite-to-event.component';
 import { AddEventComponent } from './pages/add-event/add-event.component';
+import { AddUserToGroupComponent } from './pages/add-user-to-group/add-user-to-group.component';
 
 const routes: Routes = [
   {path: '', pathMatch:'full', redirectTo: "home"},
@@ -43,6 +44,7 @@ const routes: Routes = [
       {path: 'map', component: MapComponent},
       {path: 'logout', component: LogoutComponent},
       {path: 'user', component: UserComponent},
+      {path: 'add-to-group/:name', component: AddUserToGroupComponent},
       {path: '', pathMatch:'full', redirectTo: "home"},
     ]
   },
