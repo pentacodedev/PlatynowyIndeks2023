@@ -1,7 +1,5 @@
 <div class="userCard">
-    <div id="photo">
-        <img src="{{user.photo}}" alt="Brak zdjęcia">
-    </div>
+    <img [src]="user.photo || './assets/nophoto.webp'" alt="Brak zdjęcia" id="photo">
     <div class="content">
         <h3>Nazwa użytkownika: {{user.userName | titlecase}}</h3>
         <h5>Email: {{user.email}}</h5>

@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { ApiService } from 'src/app/services/api.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class EditPhotoComponent {
   @Output()
   updatePhoto: EventEmitter<any> = new EventEmitter()
   
-  constructor(private api: ApiService){}
+  constructor(private api: ApiService, private toastr: ToastrService){}
 
   files: File[] = [];
 
@@ -28,7 +29,7 @@ export class EditPhotoComponent {
     if(this.files.length > 0)
       this.api.uploadFile(this.files.pop()!).subscribe({
         next: () => {
-          alert("Zdjęcie zostało wysłane"); this.updatePhoto.emit()
+          this.toastr.info("Zdjęcie zostało wysłane"); this.updatePhoto.emit()
         },
       })
   }

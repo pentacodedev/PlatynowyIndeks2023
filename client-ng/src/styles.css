@@ -42,7 +42,9 @@
     src: url('assets/Montserrat-Italic-VariableFont_wght.ttf');
     font-style: italic;
 }
-
+img{
+    display: block;
+}
 * {
     box-sizing: border-box;
 }

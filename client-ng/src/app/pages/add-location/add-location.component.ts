@@ -2,6 +2,7 @@ import { JsonPipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { latLng, LatLng } from 'leaflet';
+import { ToastrService } from 'ngx-toastr';
 import { LocationModel } from 'src/app/models/LocationModel';
 import { ApiService } from 'src/app/services/api.service';
 
@@ -12,7 +13,7 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class AddLocationComponent {
 
-  constructor(private fb: FormBuilder, private api: ApiService) {}
+  constructor(private fb: FormBuilder, private api: ApiService, private toastr: ToastrService) {}
 
   addLocForm = this.fb.group({
     name: ['', Validators.required],
@@ -41,8 +42,8 @@ export class AddLocationComponent {
       this.selectedLocation.lng,
       false
       )).subscribe({
-        error: (err) => {alert("err: " + JSON.stringify(err))},
-        next: () => {alert("complete!")},
+        error: (err) => {this.toastr.error("err: " + JSON.stringify(err))},
+        next: () => {this.toastr.success("complete!")},
       })
   }
 

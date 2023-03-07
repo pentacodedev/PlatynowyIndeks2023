@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/services/auth.service';
 import { matchOtherValidator } from 'src/app/validators/match-other';
 
@@ -12,13 +13,12 @@ export class RegisterComponent implements OnInit {
   onRegisterSubmit() {
     let data = this.registerForm.value;
 
-    //TODO: Change this
     if (this.registerForm.invalid) {
-      console.error("form error");
+      this.toastr.error("form error");
       return;
     }
     if (data.password != data.repeatPassword) {
-      console.error("names dont match");
+      this.toastr.error("names dont match");
       return;
     }
     this.auth.register({
@@ -39,7 +39,7 @@ export class RegisterComponent implements OnInit {
     repeatPassword: ['', [Validators.required]],
   })
 
-  constructor(private fb: FormBuilder, protected auth: AuthService) { }
+  constructor(private fb: FormBuilder, protected auth: AuthService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
 

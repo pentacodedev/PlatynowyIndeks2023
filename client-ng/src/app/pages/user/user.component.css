@@ -32,15 +32,17 @@ h2{
     border: 0.2em solid var(--secondary);
 }
 #photo{
-    display: grid;
+    flex-basis: 0;
+    width: 20%;
+    display: block;
     place-items: center;
-    width: 14%;
     text-align: center;
     border: 0.2em dashed var(--fill);
     border-radius: 0.3rem;
 }
 .content{
     margin-left: 0.8rem;
+    flex-grow: 1;
 }
 .buttons{
     text-align: right;
