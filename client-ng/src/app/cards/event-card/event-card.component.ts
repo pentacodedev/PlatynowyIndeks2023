@@ -18,5 +18,5 @@ export class EventCardComponent {
   quitEvent() {
     this.api.get(`events/quit-event/${this.event.id}`).subscribe(()=>{this.leave.emit()})
   }
-  
+
 }
