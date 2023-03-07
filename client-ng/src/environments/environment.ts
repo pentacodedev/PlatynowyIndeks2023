@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  hubUrl: 'http://localhost:5000/hubs/'
+  hubUrl: 'http://34.116.175.147:5000/hubs/'
 };
 
 /*

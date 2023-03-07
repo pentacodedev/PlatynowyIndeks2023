@@ -26,7 +26,7 @@ export class ApiService {
     }
   }
 
-  private apiUrl: string = "http://localhost:5000/api/";
+  private apiUrl: string = "http://34.116.175.147:5000/api/";
 
   private _user?: UserModel;
 
