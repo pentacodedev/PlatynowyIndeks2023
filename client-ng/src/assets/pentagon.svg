@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="89.192924mm"
+   height="85.352829mm"
+   viewBox="0 0 89.192924 85.352829"
+   version="1.1"
+   id="svg5"
+   xml:space="preserve"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   sodipodi:docname="pentagon.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#999999"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.75277076"
+     inkscape:cx="-45.830685"
+     inkscape:cy="-168.71006"
+     inkscape:window-width="1920"
+     inkscape:window-height="1011"
+     inkscape:window-x="0"
+     inkscape:window-y="32"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" /><defs
+     id="defs2" /><g
+     inkscape:label="Warstwa 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-47.495105,-165.83369)"><path
+       style="fill:#00ff56;fill-opacity:1;stroke:#00e765;stroke-width:10.733;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+       d="m 92.09157,171.20019 39.22996,28.50224"
+       id="path16222" /><path
+       style="fill:none;stroke:#00d29c;stroke-width:10.733;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+       d="m 131.32153,199.70243 -14.98451,46.11759"
+       id="path16354" /><path
+       style="fill:none;stroke:#00ba66;stroke-width:10.733;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+       d="M 116.33702,245.82002 H 67.846117"
+       id="path16356" /><path
+       style="fill:none;stroke:#00e47b;stroke-width:10.733;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+       d="M 67.846117,245.82002 52.861605,199.70243"
+       id="path16358" /><path
+       style="fill:#00ff00;stroke:#10ff6b;stroke-width:10.733;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+       d="M 52.861605,199.70243 92.09157,171.20019"
+       id="path16360" /></g></svg>
