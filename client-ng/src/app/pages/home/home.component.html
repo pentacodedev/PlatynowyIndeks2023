@@ -10,25 +10,22 @@
     </p>
 </div>
 <div class="container" *ngIf="api.user != undefined">
-    <div class="userGroups">
-        <h2>Twoje grupy:</h2>
-        <hr>
-        <div class="optionCard" *ngFor="let group of groups$ | async">
-            <app-group-card [group]="group" (showInfoClicked)="showInfo($event)"></app-group-card>
+    <div class="userGroups" *ngIf="(invites$ | async)?.length">
+        <h2>Do tych eventów zostałeś zaproszony:</h2>
+        <div class="optionCard" *ngFor="let event of invites$ | async">
+            <app-event-to-accept-card [event]="event" (chosen)="refresh()"></app-event-to-accept-card>
         </div>
     </div>
     <div class="userGroups">
         <h2>Zbliżające się eventy:</h2>
-        <hr>
         <div class="optionCard" *ngFor="let event of events$ | async">
             <app-event-card [event]="event" (leave)="refresh()"></app-event-card>
         </div>
     </div>
     <div class="userGroups">
-        <h2>Do tych eventów zostałeś zaproszony:</h2>
-        <hr>
-        <div class="optionCard" *ngFor="let event of invites$ | async">
-            <app-event-to-accept-card [event]="event" (chosen)="refresh()"></app-event-to-accept-card>
+        <h2>Twoje grupy:</h2>
+        <div class="optionCard" *ngFor="let group of groups$ | async">
+            <app-group-card [group]="group" (showInfoClicked)="showInfo($event)"></app-group-card>
         </div>
     </div>
 </div>

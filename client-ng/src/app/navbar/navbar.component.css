@@ -1,9 +1,17 @@
-nav { 
+nav {
     display:flex;
-    height: 100%;
+    flex-direction: column;
+    width: 100%;
     --border: 0.2em solid var(--fill);
 }
+@media(min-width:480px) {
+  nav {
+    flex-direction: row;
+  }
+}
+
 nav a {
+    min-width: fit-content;
     border-bottom: var(--border);
     padding: 0.8em;
     text-decoration: none;

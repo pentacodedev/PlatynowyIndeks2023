@@ -1,12 +1,18 @@
 .container{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /*grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));*/
     margin-top: 1rem;
     gap: 1rem;
 }
+
+
 .userGroups{
+    flex-basis: 0;
+    flex-grow: 1;
     border: 0.2em solid var(--fill);
-    padding: 0.5rem;
+    padding: 0.25rem;
     border-radius: 0.5rem;
     transition: 0.3s;
     height: 100%;
@@ -16,6 +22,7 @@
 }
 .optionCard{
     border: 0.2em dashed var(--fill);
+    /*background-color: var(--fill);*/
     margin-bottom: 0.5rem;
     border-radius: 0.5rem;
     padding: 0.3rem;
@@ -25,16 +32,16 @@
     border: 0.2em solid var(--primary-l);
 }
 
-h1::before {  
+h1::before {
     transform: scaleX(0);
     transform-origin: bottom right;
   }
-  
+
 h1:hover::before {
     transform: scaleX(1);
     transform-origin: bottom left;
 }
-  
+
 h1::before {
     content: " ";
     display: block;
@@ -51,15 +58,12 @@ h1::before {
 h1 {
     font-weight: 480;
     position: relative;
-    font-size: 5rem;
-    width: fit-content;
-    padding: 5px 15px;
-    color: var(--fg);
-    margin: 1rem;
-}
-.online{
+    font-size: 3.5rem;
+    max-width: min-content;
+    /*margin: auto;*/
     width: 100%;
-    text-align: right;
+    text-align: center;
+    color: var(--fg);
 }
 
 @media (orientation: landscape) {

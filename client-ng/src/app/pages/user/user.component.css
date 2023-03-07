@@ -15,7 +15,7 @@ h2{
     margin-bottom: 0.5rem;
     border-radius: 0.5rem;
     padding: 0.3rem;
-    transition: 0.3s; 
+    transition: 0.3s;
 }
 .groupCard:hover{
     border: 0.2em solid var(--secondary);

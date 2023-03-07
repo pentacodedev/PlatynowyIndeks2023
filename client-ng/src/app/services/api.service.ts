@@ -7,6 +7,12 @@ import { LocationModel } from '../models/LocationModel';
 import { UserModel } from '../models/UserModel';
 import { PresenceService } from './presence.service';
 
+interface ToastrError {
+  status: number;
+  statusText: string,
+  error: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -24,11 +30,11 @@ export class ApiService {
 
   private _user?: UserModel;
 
-  public get user(): UserModel | undefined { 
+  public get user(): UserModel | undefined {
     return this._user;
   }
 
-  public set user(val: UserModel | undefined) { 
+  public set user(val: UserModel | undefined) {
     if (val) {
       localStorage.setItem("user", JSON.stringify(val));
     }
@@ -43,7 +49,10 @@ export class ApiService {
     localStorage.removeItem("user");
   }
 
-  public onErr(err: any) {
+
+
+  public onErr(err: ToastrError) {
+    this.toastr.error(err.error,err.statusText);
     return EMPTY;
   }
 
@@ -56,6 +65,7 @@ export class ApiService {
           'Bearer-Token':  `${token}`,
           'Authorization': `bearer ${token}`,
       } 
+
     }
     return authHeaders;
   }
@@ -63,65 +73,65 @@ export class ApiService {
   public post<TValue, TBody>(relPath: string, data: TBody) {
     return this.http.post<TValue>(this.apiUrl + relPath, data, {
       headers: this.getHeaders(),
-    }).pipe(catchError(this.onErr))
+    }).pipe(catchError(this.onErr.bind(this)))
   }
-  
+
   public put<TValue, TBody>(relPath: string, data: TBody) {
     return this.http.put<TValue>(this.apiUrl + relPath, data, {
       headers: this.getHeaders(),
-    }).pipe(catchError(this.onErr))
+    }).pipe(catchError(this.onErr.bind(this)))
   }
 
   public delete(relPath: string) {
     return this.http.delete(this.apiUrl + relPath, {headers: this.getHeaders()})
-    .pipe(catchError(this.onErr))
+    .pipe(catchError(this.onErr.bind(this)))
   }
 
 
   public getByName<T>(relPath: string, name: string): Observable<T> {
     return this.http.get<T>(this.apiUrl + relPath + "/" + name, {
       headers: this.getHeaders(),
-    }).pipe(catchError(this.onErr))
+    }).pipe(catchError(this.onErr.bind(this)))
   }
   public getById<T>(relPath: string, id: string): Observable<T> {
     return this.http.get<T>(this.apiUrl + relPath + "/" + id, {
       headers: this.getHeaders(),
-    }).pipe(catchError(this.onErr))
+    }).pipe(catchError(this.onErr.bind(this)))
   }
   public get<T>(relPath: string): Observable<T> {
     return this.http.get<T>(this.apiUrl + relPath, {
       headers: this.getHeaders(),
-    }).pipe(catchError(this.onErr))
+    }).pipe(catchError(this.onErr.bind(this)))
   }
 
   public getEmpty(relPath: string) {
     return this.http.get(this.apiUrl + relPath, {
       headers: this.getHeaders(),
-    }).pipe(catchError(this.onErr))
+    }).pipe(catchError(this.onErr.bind(this)))
   }
 
   public getAll<T>(relPath: string) : Observable<T[]> {
     return this.http.get<T[]>(this.apiUrl + relPath, {
       headers: this.getHeaders(),
-    }).pipe(catchError(this.onErr))
+    }).pipe(catchError(this.onErr.bind(this)))
   }
 
   public getAllLocations(): Observable<LocationModel[]> {
     return this.http.get<LocationModel[]>(this.apiUrl + "locations/accepted-locations", {
       headers: this.getHeaders(),
-    }).pipe(catchError(this.onErr))
+    }).pipe(catchError(this.onErr.bind(this)))
   }
 
   public deleteLocationWithId(id: number){
     return this.http.delete(this.apiUrl + "locations/" + id, {
       headers: this.getHeaders(),
-    }).pipe(catchError(this.onErr))
+    }).pipe(catchError(this.onErr.bind(this)))
   }
 
   public acceptLocationWithId(id: number){
     return this.http.get(this.apiUrl + "locations/accept-location/" + id, {
       headers: this.getHeaders(),
-    }).pipe(catchError(this.onErr))
+    }).pipe(catchError(this.onErr.bind(this)))
   }
 
   public uploadFile(file: File){
@@ -133,3 +143,4 @@ export class ApiService {
   }
 
 }
+
