@@ -39,6 +39,8 @@ import { GroupCardAdminComponent } from './cards/group-card-admin/group-card-adm
 import { InviteToEventComponent } from './pages/invite-to-event/invite-to-event.component';
 import { AddEventComponent } from './pages/add-event/add-event.component';
 import { AddUserToGroupComponent } from './pages/add-user-to-group/add-user-to-group.component';
+import { EditPhotoComponent } from './cards/edit-photo/edit-photo.component';
+import { NgxDropzoneModule } from 'ngx-dropzone';
 
 
 
@@ -74,6 +76,7 @@ import { AddUserToGroupComponent } from './pages/add-user-to-group/add-user-to-g
     InviteToEventComponent,
     AddEventComponent,
     AddUserToGroupComponent,
+    EditPhotoComponent,
   ],
   imports: [
     BrowserAnimationsModule,
@@ -82,6 +85,7 @@ import { AddUserToGroupComponent } from './pages/add-user-to-group/add-user-to-g
     FormsModule,
     LeafletModule,
     ReactiveFormsModule,
+    NgxDropzoneModule,
     HttpClientModule,
     NgIconsModule,
     ToastrModule.forRoot({

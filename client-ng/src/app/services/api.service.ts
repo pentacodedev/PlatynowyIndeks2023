@@ -38,10 +38,6 @@ export class ApiService {
     this._user = val;
   }
 
-  public setHttpHeaders() {
-    
-  }
-
   public removeUser() {
     this._user = undefined;
     localStorage.removeItem("user");
@@ -58,7 +54,7 @@ export class ApiService {
     if (this._user != undefined) {
       authHeaders = {
           'Bearer-Token':  `${token}`,
-          'Authorization': `bearer ${token}`
+          'Authorization': `bearer ${token}`,
       } 
     }
     return authHeaders;
@@ -123,14 +119,17 @@ export class ApiService {
   }
 
   public acceptLocationWithId(id: number){
-    console.log("asd")
     return this.http.get(this.apiUrl + "locations/accept-location/" + id, {
       headers: this.getHeaders(),
     }).pipe(catchError(this.onErr))
   }
 
-  // public getAllByUserName<T>(path: string, username: string){
-  //   return this.http.get<T[]>(path + "/" + username);
-  // }
+  public uploadFile(file: File){
+    const fd = new FormData();
+    fd.append('image', file, file.name);
+    return this.http.post(this.apiUrl + "users/add-photo", fd, {
+      headers: this.getHeaders(),
+    })
+  }
 
 }

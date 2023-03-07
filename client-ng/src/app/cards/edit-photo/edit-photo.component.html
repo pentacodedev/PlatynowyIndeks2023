@@ -1,0 +1,14 @@
+<div class="container">
+    <ngx-dropzone (change)="onSelect($event)" class="dropzone" [multiple]=false>
+        <ngx-dropzone-label>Prześlij zdjęcie</ngx-dropzone-label>
+        <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)" >
+            <ngx-dropzone-label class="label">{{ f.name }}</ngx-dropzone-label>
+        </ngx-dropzone-preview>
+    </ngx-dropzone>
+
+    <div class="preview" >
+        <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f">
+        </ngx-dropzone-image-preview>
+        <button (click)="sendPhoto()" class="send" *ngIf="files.length > 0">Ustaw zdjęcie</button>    
+    </div>
+</div>

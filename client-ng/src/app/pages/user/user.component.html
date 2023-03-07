@@ -13,10 +13,12 @@
     <p>Adres email: {{(player$ | async)?.email}}</p>
     <a routerLink="/logout"><button>Wyloguj się</button></a>
     </div>
+    
 </div>
-
-<div class="container" *ngIf="api.user != undefined"
->
+<div class="photo-upload">
+    <app-edit-photo (updatePhoto)="refresh()"></app-edit-photo>
+</div>
+<div class="container" *ngIf="api.user != undefined">
     <div class="section">
         <h4>Twoje wydarzenia:</h4>
         <div class="groupCard" *ngFor="let i of events$ | async">

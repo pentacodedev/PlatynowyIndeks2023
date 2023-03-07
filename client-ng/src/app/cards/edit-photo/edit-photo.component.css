@@ -1,0 +1,26 @@
+.dropzone{
+    background-color: var(--bg);
+    margin: 1rem;
+}
+.dropzone:hover{
+    border-color: var(--primary);
+    color: var(--primary);
+}
+.preview{
+    margin: 1rem;
+}
+.container{
+    display: flex;
+}
+.label{
+    padding: 1rem;
+    background-color: var(--primary-l);
+    color: var(--secondary);
+}
+.send{
+    margin: auto;
+    display: block;
+}
+.send:hover{
+    color: var(--primary);
+}
