@@ -6,7 +6,7 @@
 }
 .userGroups{
     border: 0.2em solid var(--fill);
-    padding: 0.5rem;
+    padding: 0.25rem;
     border-radius: 0.5rem;
     transition: 0.3s;
     height: 100%;
@@ -25,16 +25,16 @@
     border: 0.2em solid var(--primary-l);
 }
 
-h1::before {  
+h1::before {
     transform: scaleX(0);
     transform-origin: bottom right;
   }
-  
+
 h1:hover::before {
     transform: scaleX(1);
     transform-origin: bottom left;
 }
-  
+
 h1::before {
     content: " ";
     display: block;
@@ -51,15 +51,12 @@ h1::before {
 h1 {
     font-weight: 480;
     position: relative;
-    font-size: 5rem;
-    width: fit-content;
-    padding: 5px 15px;
-    color: var(--fg);
-    margin: 1rem;
-}
-.online{
+    font-size: 3.5rem;
+    max-width: min-content;
+    /*margin: auto;*/
     width: 100%;
-    text-align: right;
+    text-align: center;
+    color: var(--fg);
 }
 
 @media (orientation: landscape) {
