@@ -1,12 +1,20 @@
+h1,h2,h3,h4 {
+  margin: 0;
+  padding: 0.25rem;
+}
+
+p {
+  margin: 0.25rem;
+}
+
 .container{
     padding: 1px 10px;
     width: 70%;
     transition: 0.3s;
 }
 h3{
-    color: white;
+    color: var(--primary);
 }
-
 .container:hover h3{
     color: var(--primary-l);
 }
@@ -19,7 +27,7 @@ h3{
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    
+
 }
 :host{
     display: flex;
