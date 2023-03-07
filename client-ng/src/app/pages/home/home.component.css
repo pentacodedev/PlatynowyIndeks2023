@@ -1,10 +1,16 @@
 .container{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /*grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));*/
     margin-top: 1rem;
     gap: 1rem;
 }
+
+
 .userGroups{
+    flex-basis: 0;
+    flex-grow: 1;
     border: 0.2em solid var(--fill);
     padding: 0.25rem;
     border-radius: 0.5rem;
@@ -16,6 +22,7 @@
 }
 .optionCard{
     border: 0.2em dashed var(--fill);
+    /*background-color: var(--fill);*/
     margin-bottom: 0.5rem;
     border-radius: 0.5rem;
     padding: 0.3rem;
