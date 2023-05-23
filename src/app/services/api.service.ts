@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders, HttpParamsOptions } from '@angular/common/http
 import { Injectable } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { catchError, EMPTY, Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { GroupModel } from '../models/GroupModel';
 import { LocationModel } from '../models/LocationModel';
 import { UserModel } from '../models/UserModel';
@@ -26,7 +27,7 @@ export class ApiService {
     }
   }
 
-  private apiUrl: string = "http://34.116.175.147:5000/api/";
+  private apiUrl: string = environment.apiUrl;
 
   private _user?: UserModel;
 
@@ -64,7 +65,7 @@ export class ApiService {
       authHeaders = {
           'Bearer-Token':  `${token}`,
           'Authorization': `bearer ${token}`,
-      } 
+      }
 
     }
     return authHeaders;
