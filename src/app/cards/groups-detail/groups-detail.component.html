@@ -5,10 +5,10 @@
         <a (click)="changeCard('description')">Opis</a>
         <a (click)="changeCard('members')">Członkowie</a>
     </nav>
-    <div *ngIf="currentCard == 'description'">
+    <div *ngIf="currentCard === 'description'">
         <h3>{{group.description}}</h3>
     </div>
-    <div *ngIf="currentCard == 'members'">
+    <div *ngIf="currentCard === 'members'">
         <div *ngFor="let player of players$ | async">
             <app-small-player-card [user]="player"></app-small-player-card>
         </div>

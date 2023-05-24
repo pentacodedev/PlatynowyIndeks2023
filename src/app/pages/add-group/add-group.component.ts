@@ -21,7 +21,7 @@ export class AddGroupComponent {
     description: ['', [Validators.required]],
   })
   onGroupFormSubmit() {
-    let data = this.groupForm.value;
+    const data = this.groupForm.value;
     this.api.post<GroupModel,RegisterGroupDto>("groups/register-group",{
       name: data.name!,
       description: data.description!,

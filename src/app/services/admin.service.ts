@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { catchError, EMPTY, empty, of } from 'rxjs';
 import { EventModel } from '../models/EventModel';
 import { GroupModel } from '../models/GroupModel';
 import { LocationModel } from '../models/LocationModel';
@@ -13,7 +12,7 @@ export class AdminService {
   constructor(private api: ApiService) {
   }
 
-  getAllUsers() { 
+  getAllUsers() {
     return this.api.getAll<PlayerModel>("users");
   }
   getAllLocations(){

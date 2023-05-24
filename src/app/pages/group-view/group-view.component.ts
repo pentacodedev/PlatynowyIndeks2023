@@ -1,10 +1,9 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { GroupModel } from 'src/app/models/GroupModel';
 import { LocationModel } from 'src/app/models/LocationModel';
 import { PlayerModel } from 'src/app/models/PlayerModel';
-import { UserModel } from 'src/app/models/UserModel';
 import { ApiService } from 'src/app/services/api.service';
 
 @Component({

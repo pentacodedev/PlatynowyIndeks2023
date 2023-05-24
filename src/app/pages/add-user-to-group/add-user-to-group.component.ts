@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { GroupModel } from 'src/app/models/GroupModel';
-import { LocationModel } from 'src/app/models/LocationModel';
 import { PlayerModel } from 'src/app/models/PlayerModel';
 import { ApiService } from 'src/app/services/api.service';
 
@@ -26,6 +25,6 @@ export class AddUserToGroupComponent {
     this.api.get("groups/"+ this.group?.name +"/add-user/"+ m.userName).subscribe(
       () => this.users$ = this.api.getAll<PlayerModel>("users/user-not-in-group/" + this.group?.name)
     )
-    
+
   }
 }

@@ -12,11 +12,11 @@ export class GroupCardAdminComponent {
   @Output() showInfoClicked = new EventEmitter<GroupModel>();
 
   constructor(protected api: ApiService) { }
-  
+
   onInfoClick(){
     this.showInfoClicked.emit(this.group)
   }
   onEditClick(){
-
+    console.log("edit clicked")
   }
 }

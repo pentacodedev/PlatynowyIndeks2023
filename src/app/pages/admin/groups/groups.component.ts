@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { GroupModel } from 'src/app/models/GroupModel';
 import { AdminService } from 'src/app/services/admin.service';
-import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-admin-groups',

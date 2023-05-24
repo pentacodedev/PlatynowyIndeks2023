@@ -3,13 +3,13 @@
 
 <h1>Team<span class="here">Here</span></h1>
 <h3 class="online">Użytkownicy <span class="here">Online: {{(onlineUsers$ | async)?.length}}</span></h3>
-<div *ngIf="api.user == undefined">
+<div *ngIf="api.user === undefined">
     <p>
         <a routerLink="/login">Zaloguj się</a>
         aby korzystać z TeamHere
     </p>
 </div>
-<div class="container" *ngIf="api.user != undefined">
+<div class="container" *ngIf="api.user !== undefined">
     <div class="userGroups" *ngIf="(invites$ | async)?.length">
         <h2>Do tych eventów zostałeś zaproszony:</h2>
         <div class="optionCard" *ngFor="let event of invites$ | async">

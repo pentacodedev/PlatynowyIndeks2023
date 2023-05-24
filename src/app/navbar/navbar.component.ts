@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ApiService } from '../services/api.service';
 
 @Component({
@@ -6,17 +6,14 @@ import { ApiService } from '../services/api.service';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent {
 
- 
+
   @Input()
   isLogged?: boolean;
 
-  constructor(public api: ApiService) { 
+  constructor(public api: ApiService) {
 
-  }
-
-  ngOnInit(): void {
   }
 
 }

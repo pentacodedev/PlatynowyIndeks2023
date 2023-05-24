@@ -15,5 +15,5 @@ export class EventModel
         public confirmedParticipants: PlayerModel[],
         public eventHost: PlayerModel,
         public adminsOfEvent: PlayerModel[],
-    ) {};
+    ) {}
 }

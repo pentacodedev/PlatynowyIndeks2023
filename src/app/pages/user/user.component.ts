@@ -1,7 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
-import { UserModel } from 'src/app/models/UserModel';
-import { AuthService } from 'src/app/services/auth.service';
 import { PlayerModel } from 'src/app/models/PlayerModel';
 import { GroupModel } from 'src/app/models/GroupModel';
 import { LocationModel } from 'src/app/models/LocationModel';
@@ -26,7 +24,7 @@ export class UserComponent {
     this.api.delete(`locations/${loc.id}`).subscribe();
     this.refreshLocations();
   }
-  openInviteMenu(ev: EventModel){ 
+  openInviteMenu(ev: EventModel){
     this.router.navigate(["/invite-to-event", ev.id])
   }
 
@@ -37,7 +35,6 @@ export class UserComponent {
   objectLocation$ = this.api.getAll<LocationModel>("locations/get-your-locations");
 
   refresh(){
-    debugger
     this.player$ = this.api.getByName<PlayerModel>("users" , this.api.user!.username);
   }
 

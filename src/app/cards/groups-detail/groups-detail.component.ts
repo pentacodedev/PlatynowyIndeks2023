@@ -1,6 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { GroupModel } from 'src/app/models/GroupModel';
-import { EventModel } from 'src/app/models/EventModel';
 import { PlayerModel } from 'src/app/models/PlayerModel';
 import { ApiService } from 'src/app/services/api.service';
 import { Observable } from 'rxjs';
@@ -15,7 +14,7 @@ export class GroupsDetailComponent{
   @Input() group!: GroupModel;
 
   players$?: Observable<PlayerModel[]>;
-  currentCard: string = "description";
+  currentCard = "description";
 
   constructor(public api: ApiService){}
 

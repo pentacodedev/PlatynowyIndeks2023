@@ -1,7 +1,6 @@
-import { JsonPipe } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { latLng, LatLng } from 'leaflet';
+import { FormBuilder, Validators } from '@angular/forms';
+import { LatLng } from 'leaflet';
 import { ToastrService } from 'ngx-toastr';
 import { LocationModel } from 'src/app/models/LocationModel';
 import { ApiService } from 'src/app/services/api.service';
@@ -23,8 +22,8 @@ export class AddLocationComponent {
 
   selectedLocation?: LatLng;
 
-  onNewLocationSelected(loc: LatLng) {
-    this.selectedLocation = loc;
+  onNewLocationSelected(event: LatLng) {
+    this.selectedLocation = event;
   }
 
   onAddLocFormSubmit() {

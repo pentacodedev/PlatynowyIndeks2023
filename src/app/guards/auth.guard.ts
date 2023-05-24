@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { CanActivate } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Observable, of } from 'rxjs';
 import { ApiService } from '../services/api.service';
@@ -18,5 +18,5 @@ export class AuthGuard implements CanActivate {
       this.toastr.error("You are not Authenticated")
       return of(false);
   }
-  
+
 }

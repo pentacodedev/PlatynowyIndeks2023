@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { GroupModel } from 'src/app/models/GroupModel';
 import { EventModel } from 'src/app/models/EventModel';
 import { ApiService } from 'src/app/services/api.service';
@@ -26,7 +26,7 @@ export class HomeComponent {
   logout() {
     this.auth.logout();
   }
-  
+
   showInfo($event: GroupModel){
     this.overlayGroup = $event
   }

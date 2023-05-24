@@ -17,7 +17,7 @@ export class AdminLocationsComponent implements OnInit{
   ngOnInit(): void {
     this.locationsArray$ = this.admin.getAllLocations();
   }
-  updateLocations(_:any){
+  updateLocations(ev:any){
     this.locationsArray$ = this.admin.getAllLocations();
   }
 }

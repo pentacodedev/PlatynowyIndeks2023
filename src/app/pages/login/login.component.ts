@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -8,19 +7,15 @@ import { AuthService } from 'src/app/services/auth.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
-
-
+export class LoginComponent {
 
   onLoginSubmit() {
-    let f = this.loginForm.value;
+    const f = this.loginForm.value;
 
     if (f.password != null && f.username != null) {
       this.auth.login(f.username, f.password)
     }
   }
-
-
 
   constructor(private fb: FormBuilder, protected auth: AuthService) {
   }
@@ -29,9 +24,5 @@ export class LoginComponent implements OnInit {
     username: ['', [Validators.required]],
     password: ['', [Validators.required]],
   })
-
-
-  ngOnInit(): void {
-  }
 
 }

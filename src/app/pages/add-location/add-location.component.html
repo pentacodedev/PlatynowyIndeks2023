@@ -1,7 +1,7 @@
 <h1>Dodaj nową lokację: </h1>
 
 <div class="map-view">
-    <app-map-picker class="picker" (onLocationSelected)="onNewLocationSelected($event)"></app-map-picker>
+    <app-map-picker class="picker" (locationSelected)="onNewLocationSelected($event)"></app-map-picker>
     <div class="tooltip">
         click on position to select
     </div>
@@ -10,7 +10,7 @@
         <p>Wybrana lokalizacja:</p>
         <p>
         <code>
-        Lat: {{selectedLocation?.lat}} <br> 
+        Lat: {{selectedLocation?.lat}} <br>
         Lon: {{selectedLocation?.lng}}
         </code>
         <p>

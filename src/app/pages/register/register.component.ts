@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/services/auth.service';
-import { matchOtherValidator } from 'src/app/validators/match-other';
 
 @Component({
   selector: 'app-register',
@@ -11,7 +10,7 @@ import { matchOtherValidator } from 'src/app/validators/match-other';
 })
 export class RegisterComponent implements OnInit {
   onRegisterSubmit() {
-    let data = this.registerForm.value;
+    const data = this.registerForm.value;
 
     if (this.registerForm.invalid) {
       this.toastr.error("form error");

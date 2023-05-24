@@ -12,9 +12,9 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class InviteToEventComponent implements OnInit{
 
-  id: string = "";
+  id = "";
   targetEvent?: EventModel;
-  
+
   members$?: Observable<PlayerModel[]>;
 
   constructor(private route: ActivatedRoute, private api: ApiService) {
@@ -23,7 +23,7 @@ export class InviteToEventComponent implements OnInit{
     this.route.params.subscribe((params)=>{
       this.api.getById<EventModel>("events",params["id"]).subscribe(
       (ev) =>{
-        this.id = params['id'];  
+        this.id = params['id'];
         this.fetchData();
       })
   })}

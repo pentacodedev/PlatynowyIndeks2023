@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
 import { LoginData } from '../models/LoginData';
 import { RegisterData } from '../models/RegisterData';
 import { UserModel } from '../models/UserModel';
@@ -27,7 +26,7 @@ export class AuthService {
   }
 
   login(username: string, password: string) {
-    let loginData: LoginData = {
+    const loginData: LoginData = {
         username: username,
         password: password,
     }

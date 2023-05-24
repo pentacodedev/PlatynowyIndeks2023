@@ -1,7 +1,7 @@
 <ng-container *ngIf="group">
 <h1>Profil grupy {{group.name}}</h1>
 <div class="information">
-    
+
 </div>
 <div class="container">
     <div class="section">
@@ -11,18 +11,18 @@
     </div>
     <div class="section">
         <h3>Użytkownicy:</h3>
-        
+
         <app-small-player-card *ngFor="let user of users$ | async" [user]="user"></app-small-player-card>
         <div class="buttons">
             <button class="accept" routerLink="{{'/add-to-group/' + group.name}}">Dodaj Użytkowników</button>
         </div>
     </div>
-    
-    <div class="section" *ngIf="(locations$ | async )?.length != 0">
+
+    <div class="section" *ngIf="(locations$ | async )?.length !== 0">
         <h3>Lokalizacje:</h3>
         <app-location-view *ngFor="let location of locations$ | async" [location]="location"></app-location-view>
     </div>
-    <div class="section" *ngIf="(locations$ | async )?.length == 0">
+    <div class="section" *ngIf="(locations$ | async )?.length === 0">
         <h3>Lokalizacje:</h3>
         <h3>Grupa jeszcze nie ma lokalizacji :(</h3>
     </div>

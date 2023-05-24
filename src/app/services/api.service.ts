@@ -1,9 +1,8 @@
-import { HttpClient, HttpHeaders, HttpParamsOptions } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { catchError, EMPTY, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { GroupModel } from '../models/GroupModel';
 import { LocationModel } from '../models/LocationModel';
 import { UserModel } from '../models/UserModel';
 import { PresenceService } from './presence.service';
@@ -20,7 +19,7 @@ interface ToastrError {
 export class ApiService {
 
   constructor(private http: HttpClient, private toastr: ToastrService, private presence: PresenceService) {
-    let userJson = localStorage.getItem("user");
+    const userJson = localStorage.getItem("user");
     if (userJson != null) {
       this._user = JSON.parse(userJson);
       this.presence.createHubConnection(this._user!);
@@ -60,7 +59,7 @@ export class ApiService {
 
   public getHeaders() {
     let authHeaders = {}
-    let token = this._user?.token;
+    const token = this._user?.token;
     if (this._user != undefined) {
       authHeaders = {
           'Bearer-Token':  `${token}`,

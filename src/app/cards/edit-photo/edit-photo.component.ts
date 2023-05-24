@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { ApiService } from 'src/app/services/api.service';
 
@@ -9,10 +9,10 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class EditPhotoComponent {
 
-  
+
   @Output()
   updatePhoto: EventEmitter<any> = new EventEmitter()
-  
+
   constructor(private api: ApiService, private toastr: ToastrService){}
 
   files: File[] = [];

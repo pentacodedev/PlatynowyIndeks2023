@@ -5,5 +5,5 @@ export class GroupModel
         public name: string,
         public description: string,
         public hasSignedObject: boolean
-    ) {};
+    ) {}
 }

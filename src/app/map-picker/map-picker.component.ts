@@ -12,14 +12,14 @@ export class MapPickerComponent {
   marker?: Marker;
 
   @Output()
-  onLocationSelected = new EventEmitter<LatLng>();
+  locationSelected = new EventEmitter<LatLng>();
 
   onMapClick(ev: LeafletMouseEvent) {
     this.selectedLocation = ev.latlng;
     this.marker = marker(this.selectedLocation, {
       icon: icon({iconUrl:"assets/pin.svg",iconRetinaUrl:"assets/pin.svg", iconSize:[30,30], iconAnchor:[15,30]})
     });
-    this.onLocationSelected.emit(this.selectedLocation);
+    this.locationSelected.emit(this.selectedLocation);
   }
 
   options:MapOptions = {
